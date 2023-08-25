@@ -386,3 +386,20 @@
 	\includegraphics[width=0.5\textwidth]{assets/images/titlepage/hbrs_logo.jpg}\\
 	\tikz[remember picture, overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth]{assets/images/titlepage/hbrs_backdrop.jpg}};
 }
+
+%% Double signature %%
+\newcommand{\doublesignature}[2]{%
+\vspace{2cm}
+\noindent
+\parbox{6cm}{
+    \raggedright
+    \rule{6cm}{0.8pt}\\
+     #1 
+  }
+  \hfill
+  \parbox{6cm}{
+    \raggedleft
+    \rule{6cm}{0.8pt}\\
+    #2
+  }
+}
