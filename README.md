@@ -18,4 +18,4 @@ Danach kann die Ordnerstruktur `template` einfach als Vorlage für das Dokument 
 
 Angaben über den Titel des Dokuments, den Autor usw. finden sich unter `template/assets/utility/meta.tex`. Das muss einmal gesetzt werden und bleibt dann in der Regel fix. Für den Buildprozess sollte `latexmk` verwendet werden.
 
-:information: Weitere Informationen für die Verwendung der Klasse folgen im Beispieldokument.
+⚠️ Weitere Informationen für die Verwendung der Klasse folgen im Beispieldokument. ⚠️
