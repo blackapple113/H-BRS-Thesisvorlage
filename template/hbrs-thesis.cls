@@ -31,6 +31,8 @@
 
 %%%% Definition of package options %%%%
 \newcommand{\thislanguage}{ngerman}
+\newif\ifglossaries
+\glossariestrue
 
 \DeclareOption{german}{ % Sets the main language in the document to german.
   \PassOptionsToPackage{ngerman}{babel}
@@ -40,6 +42,10 @@
 \DeclareOption{english}{ % Sets the main language in the document to english.
   \PassOptionsToPackage{english}{babel}
   \renewcommand{\thislanguage}{english}
+}
+
+\DeclareOption{noglossaries}{
+  \glossariesfalse
 }
 
 \ProcessOptions\relax % Executes the code for each option.
@@ -100,12 +106,14 @@
 \RequirePackage{xurl} % Package for wrapping URLs. With the [nobiblatex] option, the URLs in the bibliography are not wrapped.
 \RequirePackage[top=7.5em,bottom=9em]{geometry} % Sets the margins. Used here to move the page number down a bit.
 \RequirePackage{rotating} % Allows images or tables to be rotated without rotating the entire page.
-\RequirePackage[
-  toc, % Adds an entry to the table of contents.
-  % nonumberlist, % Removes also the crossreference between acronyms and glossary entries with "see={...}".
-  nopostdot, % This option suppresses the default terminating full stop in glossary styles.
-  acronym % This creates a new glossary with the label acronym
-]{glossaries}
+\ifglossaries
+  \RequirePackage[
+    toc, % Adds an entry to the table of contents.
+    % nonumberlist, % Removes also the crossreference between acronyms and glossary entries with "see={...}".
+    nopostdot, % This option suppresses the default terminating full stop in glossary styles.
+    acronym % This creates a new glossary with the label acronym
+  ]{glossaries}
+\fi
 \RequirePackage{todonotes} % For orange todo boxes in the PDF document
 \RequirePackage{enumitem} % Allows customization of enumeration descriptions e.g. for research questions (Q1 > (Q1.1, Q1.2), Q2 > (Q2.1))
 \RequirePackage{ifthen} % Implements an \ifthenelse command for LaTeX2e.
@@ -323,7 +331,9 @@
 }
 
 %% Glossary configuration %%
-\makeglossaries % make glossaries
+\ifglossaries
+  \makeglossaries % make glossaries
+\fi
 
 %% Tabularry configuration %%
 \UseTblrLibrary{booktabs} % Cleaner looking tables with the booktabs package used for tabularray
