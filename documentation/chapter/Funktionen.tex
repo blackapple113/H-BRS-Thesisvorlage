@@ -21,10 +21,10 @@ Code kann wie in \autoref{chap:klassenoptionen} ohne starkes visuelles Absetzen 
     \end{…} % ersetze … durch "code"
 \end{code}
 
-Um den Code optisch durch Linien klar abzugrenzen, wird die Umgebung \texttt{codeblock} verwendet. Dieser Codeblock eignet sich vor allem für größere Codebereiche.
+Um den Code optisch durch Linien klar abzugrenzen, wird die Umgebung \texttt{codeblock} verwendet. Dieser Codeblock eignet sich vor allem für größere Codebereiche. Zusätslich kann ein Label für die Referenzierung auf den Code hinzugefügt werden.
 
 \begin{code}[latex]
-    \begin{codeblock}[python]
+    \begin{codeblock}[python,label={code:python-class}]
         class Test:
             __init__(self):
                 self.x = 5
@@ -37,5 +37,15 @@ Um den Code optisch durch Linien klar abzugrenzen, wird die Umgebung \texttt{cod
 Wie oben schon beschrieben kann Code auch aus anderen Dateien geladen werden. Dies geschieht mithilfe des Befehls \mintinline{latex}{\inputcode{language}{path/to/file}{title}}.
 
 \begin{code}[latex]
-    \inputcode{java}{assets/code/Test.java}{inputcode}
+    \inputcode{java}{assets/code/Test.java}{Java Testdatei}
 \end{code}
+
+\inputcode{java}{assets/code/Test.java}{Java Testdatei}
+
+Soll nur ein bestimmter Bereich an Zeilennummern aus Code-Dateien angezeigt werden können die Zeilen als Zeilennummern (jeweils inklusiv) mit dem Befehl \mintinline{latex}{\inputcodelinerange{language}{path/to/file}{title}{startline}{endline}} angegeben werden\todo{Weniger kompliziert machen mit NewTCBInputListing und xparse für optionale Angaben}.
+
+\begin{code}[latex]
+\inputcodelinerange{java}{assets/code/Test.java}{Java Testdatei Zeilen 2 - 4}{2}{4}
+\end{code}
+
+\inputcodelinerange{java}{assets/code/Test.java}{Java Testdatei Zeilen 2 - 4}{2}{4}
