@@ -31,17 +31,20 @@
 
 %%%% Definition of package options %%%%
 \newcommand{\thislanguage}{ngerman}
+\newcommand{\thiscdeindex}{Codeverzeichnis}
 \newif\ifglossaries
 \glossariestrue
 
 \DeclareOption{german}{ % Sets the main language in the document to german.
   \PassOptionsToPackage{ngerman}{babel}
   \renewcommand{\thislanguage}{ngerman}
+  \renewcommand{\thiscdeindex}{Codeverzeichnis}
 }
 
 \DeclareOption{english}{ % Sets the main language in the document to english.
   \PassOptionsToPackage{english}{babel}
   \renewcommand{\thislanguage}{english}
+  \renewcommand{\thiscdeindex}{Code index}
 }
 
 \DeclareOption{noglossaries}{
@@ -206,15 +209,15 @@
 %% New table of... for codeexamples and formulas %%
 \DeclareNewTOC[%
 	type=cde, % type for floating environment
-	types=cdeexamples, % plural of type
+	types=cde, % name for "\listofcde"
 	% float, % Floating environments are to be defined
 	nonfloat, % Not only is a new directory type defined, but also a non-floating environment
 	floattype=4, % Floating environments that only have different bits set in this floating type can overtake each other.
 	tocentrynumwidth:=table, % Adjusted spacing to match table index style (tocentrynumwidth=4.35ex)
 	tocentryindent:=table, % Adjusted spacing to match table index style (tocentryindent=2.85ex)
 	counterwithin=\useCounterWithin, % allows the numbering to be chapter by chapter and not have its own counter
-	name=Codebeispiel, % Name for the caption
-	listname={Codebeispielverzeichnis} % Directory title
+	name=Programmcode, % Name for the caption
+	listname={\thiscdeindex} % Directory title
 ]{loc} % File extension
 \setuptoc{loc}{sectionatlist} % Setting up the directory
 
@@ -308,12 +311,12 @@
 \ifthenelse{
   \equal{\thislanguage}{ngerman}
   }{ % true
-  \SetupFloatingEnvironment{listing}{name=Codebeispiel} % changes the code caption from "Listing" to "Codebeispiel"
+  \SetupFloatingEnvironment{listing}{name=Programmcode} % changes the code caption from "Listing" to "Programmcode"
 }{ % else
   \ifthenelse{
     \equal{\thislanguage}{english}
   }{ % true
-    \SetupFloatingEnvironment{listing}{name=Codebeispiel} % changes the code caption from "Listing" to "Codeexample"
+    \SetupFloatingEnvironment{listing}{name=Program code} % changes the code caption from "Listing" to "Program code"
   }{ % else
   }
 }
