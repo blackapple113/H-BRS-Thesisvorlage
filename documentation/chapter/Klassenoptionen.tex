@@ -12,7 +12,7 @@ Eine Pflichtoption, welche für eine korrekte Worttrennung verwendet werden muss
     \end{minted}
 \end{cde}
 
-Werden bilinguale Spracheinstellungen im Dokument benötigt, müssen in der Klassendatei \texttt{hbrs-thesis.cls} Einstellungen für das Paket \texttt{babel} getroffen werden. Das Paket befindet sich unter der Region \texttt{Required packages}. Ist die Hauptsprache des Dokuments Englisch kommen aber durchaus Deutsche Begriffe darin vor eigent sich die Konfiguration \mintinline{latex}{\RequirePackage[ngerman,english]{babel}}. Die zueltzt angegebene Sprache ist die Hauptsprache. \textbf{Mit dieser extra Konfiguration darf keine Sprache in den Optionen der Klasse gesetzt werden!}
+Werden bilinguale Spracheinstellungen im Dokument benötigt, müssen in der Klassendatei \texttt{hbrs-thesis.cls} Einstellungen für das Paket \texttt{babel} getroffen werden. Das Paket befindet sich unter der Region \texttt{Required packages}. Ist die Hauptsprache des Dokuments Englisch, kommen aber durchaus Deutsche Begriffe darin vor, eignet sich die Konfiguration \mintinline{latex}{\RequirePackage[ngerman,english]{babel}}. Die zuletzt angegebene Sprache ist die Hauptsprache. \textbf{Mit dieser extra Konfiguration darf keine Sprache in den Optionen der Klasse gesetzt werden!}
 
 \section{Stiloptionen}
 Die Klasse besitzt ein paar Optionen, um verschiedene Stile anzubieten. Mithilfe der Option \texttt{classicstyle} bzw. \texttt{modernstyle} kann zwischen einer Schriftart mit Serifen und einer serifenlosen Schriftart (was sind Serifen: \url{https://de.wikipedia.org/wiki/Serife}) unterschieden werden. Serifen sollen dem Lesenden helfen die Zeilen besser zu verfolgen, um während des Lesens nicht in der Zeile zu verrutschen, sind aber auf Bildschirmen teilweise schlechter darzustellen. Der Standard ist hier \texttt{modernstyle} und muss somit nicht explizit angegeben.
@@ -30,7 +30,7 @@ Die Klasse besitzt ein paar Optionen, um verschiedene Stile anzubieten. Mithilfe
     \caption{Beispielbild für die Option \texttt{classicstyle}.}
 \end{figure}
 
-Neben dem Stil der Schriftart kann auch zwischen \texttt{report} und \texttt{article} unterschieden werden. Report bietet einzelne Kapitel beschrieben durch \mintinline{latex}{\chapter{}} welche immer auf einer neuen Seite anfangen. Im Gegensatz dazu bietet \texttt{article} lediglich Abschnitte beschrieben durch \mintinline{latex}{\section{}}, die nicht jedes mal auf einer neuen Seite beginnen. Diese beiden Stile können durch die Größe des entsehenden Dokumentes unterschieden werden. Zum Beispiel wird so bei einem Praxisprojektbericht \texttt{article} verwendet wohingegen für eine Thesis \texttt{report} geeginet erscheint. Da die Dokumente nicht doppelseitig ausgedruckt werden entfällt die Option für ein Buchlayout. Diese wird vielleicht später noch hinzugefügt. \textbf{Die Option \texttt{article} ist standardmäßig konfiguriert.} Für eine Thesis sollten die Optionen für die Klasse \texttt{hbrs-thesis} also z.\,B. wie folgt verwendet werden:
+Neben dem Stil der Schriftart kann auch zwischen \texttt{report} und \texttt{article} unterschieden werden. Report bietet einzelne Kapitel beschrieben durch \mintinline{latex}{\chapter{}} welche immer auf einer neuen Seite anfangen. Im Gegensatz dazu bietet \texttt{article} lediglich Abschnitte beschrieben durch \mintinline{latex}{\section{}}, die nicht jedes Mal auf einer neuen Seite beginnen. Diese beiden Stile können durch die Größe des entstehenden Dokumentes unterschieden werden. Zum Beispiel wird so bei einem Praxisprojektbericht \texttt{article} verwendet wohingegen für eine Thesis \texttt{report} geeignet erscheint. Da die Dokumente nicht doppelseitig ausgedruckt werden entfällt die Option für ein Buchlayout. Diese wird vielleicht später noch hinzugefügt. \textbf{Die Option \texttt{article} ist standardmäßig konfiguriert.} Für eine Thesis sollten die Optionen für die Klasse \texttt{hbrs-thesis} also z.\,B. wie folgt verwendet werden:
 
 \begin{cde}
     \begin{minted}{latex}
@@ -39,7 +39,7 @@ Neben dem Stil der Schriftart kann auch zwischen \texttt{report} und \texttt{art
     \end{minted}
 \end{cde}
 
-Für den Fall, dass der zweisplaltige Stil wie in IEEE- oder ACM-Dokumenten optisch bevorzugt wird, existiert die Option \texttt{twocolumn}. Diese Eignet sich am Besten in Kombination der Optionen \texttt{classicstyle} und \texttt{article}. Die Entsprechende Konfiguration sieht dann beispielsweise folgendermaßen aus, wobei \texttt{article} standard ist, also nicht angegeben werden muss:
+Für den Fall, dass der zweispaltige Stil wie in IEEE- oder ACM-Dokumenten optisch bevorzugt wird, existiert die Option \texttt{twocolumn}. Diese Eignet sich am besten in Kombination der Optionen \texttt{classicstyle} und \texttt{article}. Die entsprechende Konfiguration sieht dann beispielsweise folgendermaßen aus, wobei \texttt{article} Standard ist, also nicht angegeben werden muss:
 
 \begin{cde}
     \begin{minted}{latex}
@@ -50,7 +50,7 @@ Für den Fall, dass der zweisplaltige Stil wie in IEEE- oder ACM-Dokumenten opti
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{assets/images/klassenoptionen/twocolumn_classicstyle_article.png}
+    \includegraphics[width=0.8\columnwidth]{assets/images/klassenoptionen/twocolumn_classicstyle_article.png}
     \caption{Beispielbild für die Option \texttt{twocolumn} in Kombination mit \texttt{article} und \texttt{classicstyle}.}
 \end{figure}
 
