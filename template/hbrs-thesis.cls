@@ -76,6 +76,7 @@
   outputdir=out,
   newfloat
 ]{minted} % Codehighlighting that requires python and pygmentize to work.
+\RequirePackage{tcolorbox}
 \RequirePackage{float} % This style option also incorporates the functionality of David Carlisle’s style option here, giving floating environments a [H] option which means ‘PUT IT HERE’.
 \RequirePackage{csquotes} % This package provides advanced facilities for inline and display quotations.
 \ifmodernstyle
@@ -209,14 +210,14 @@
 %% New table of... for codeexamples and formulas %%
 \DeclareNewTOC[%
 	type=cde, % type for floating environment
-	types=cde, % name for "\listofcde"
+	types=code, % name for "\listofcode"
 	% float, % Floating environments are to be defined
 	nonfloat, % Not only is a new directory type defined, but also a non-floating environment
 	floattype=4, % Floating environments that only have different bits set in this floating type can overtake each other.
 	tocentrynumwidth:=table, % Adjusted spacing to match table index style (tocentrynumwidth=4.35ex)
 	tocentryindent:=table, % Adjusted spacing to match table index style (tocentryindent=2.85ex)
 	counterwithin=\useCounterWithin, % allows the numbering to be chapter by chapter and not have its own counter
-	name=Programmcode, % Name for the caption
+	name=Code, % Name for the caption
 	listname={\thiscdeindex} % Directory title
 ]{loc} % File extension
 \setuptoc{loc}{sectionatlist} % Setting up the directory
@@ -286,7 +287,7 @@
 \setminted{
 	style=friendly, % Color scheme for code highlighting
 	linenos=true, % line numbers
-	frame=lines, % frame around the code
+	% frame=lines, % frame around the code
 	framerule=1pt, % top and bottom border lines thickness
 	autogobble=true, % removes the spaces at the beginning of the code (due to indentation by the text editor)
 	mathescape=true, % allows running the math environment in comments
@@ -311,12 +312,12 @@
 \ifthenelse{
   \equal{\thislanguage}{ngerman}
   }{ % true
-  \SetupFloatingEnvironment{listing}{name=Programmcode} % changes the code caption from "Listing" to "Programmcode"
+  \SetupFloatingEnvironment{listing}{name=Code} % changes the code caption from "Listing" to "Code"
 }{ % else
   \ifthenelse{
     \equal{\thislanguage}{english}
   }{ % true
-    \SetupFloatingEnvironment{listing}{name=Program code} % changes the code caption from "Listing" to "Program code"
+    \SetupFloatingEnvironment{listing}{name=Code} % changes the code caption from "Listing" to "Code"
   }{ % else
   }
 }
@@ -350,6 +351,67 @@
 }
 
 \renewcommand*{\bibfont}{\small} % Make the font of the bibliography smaller for better compatibility with ieee standard
+
+%% Tcolorbox configuration %%
+\tcbuselibrary{minted,breakable,skins}
+
+\newtcblisting[auto counter, number within=\useCounterWithin]{codeblock}[2][]{
+    enhanced, % enhanced styling capabilities
+    frame hidden, % hides the ugly frame even if its 0mm wide
+    borderline north = {1pt}{0pt}{black}, % sets a line top of the code
+    borderline south = {1pt}{0pt}{black}, % sets a line bottom of the code
+    borderline north = {0.5pt}{20pt}{black}, % sets a line under the headin (only for one row heading)
+    opacityfill=0, % no background colors
+    left=1mm, % left distance from frame to code
+    right=1mm, % right distance from frame to code
+    toptitle=0mm, % top distance from line to title
+    bottomtitle=2mm, % bottom distance from line to title
+    top=-5mm, % distance between title box and code
+    coltitle=black, % color of the title
+    listing engine=minted, % engine used to colorize code
+    minted language=#1, % minted language for correct colorization
+    breakable, % allows code to break over pages
+    listing only, % shows only the code and not formatted in LaTeX
+    title={\captionof{cde}{#2}}, % title of the code example with a hacky way to let it into the list of code
+}
+
+\newtcblisting{code}[1][]{
+    enhanced, % enhanced styling capabilities
+    frame hidden, % hides the ugly frame even if its 0mm wide
+    opacityfill=0, % no background colors
+    left=1mm, % left distance from frame to code
+    right=1mm, % right distance from frame to code
+    toptitle=0mm, % top distance from line to title
+    bottomtitle=2mm, % bottom distance from line to title
+    top=0mm, % distance between title box and code
+    coltitle=black, % color of the title
+    listing engine=minted, % engine used to colorize code
+    minted language=#1, % minted language for correct colorization
+    listing only, % shows only the code and not formatted in LaTeX
+}
+
+\newtcbinputlisting[auto counter, number within=\useCounterWithin]{\inputcode}[3]{
+    enhanced, % enhanced styling capabilities
+    frame hidden, % hides the ugly frame even if its 0mm wide
+    borderline north = {1pt}{0pt}{black}, % sets a line top of the code
+    borderline south = {1pt}{0pt}{black}, % sets a line bottom of the code
+    borderline north = {0.5pt}{20pt}{black}, % sets a line under the headin (only for one row heading)
+    opacityfill=0, % no background colors
+    left=1mm, % left distance from frame to code
+    right=1mm, % right distance from frame to code
+    toptitle=0mm, % top distance from line to title
+    bottomtitle=2mm, % bottom distance from line to title
+    top=-5mm, % distance between title box and code
+    coltitle=black, % color of the title
+    listing engine=minted, % engine used to colorize code
+    minted language={#1}, % minted language for correct colorization
+    breakable, % allows code to break over pages
+    listing only, % shows only the code and not formatted in LaTeX
+    listing file={#2},
+    title={\captionof{cde}{#3}}, % title of the code example with a hacky way to let it into the list of code
+}
+
+\captionsetup{hypcap=false} % needs to stay here to omit a warning when \inputcode is used.
 
 %% Hyperref configuration %%
 \hypersetup{
