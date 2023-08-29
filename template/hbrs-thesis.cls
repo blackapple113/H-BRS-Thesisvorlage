@@ -390,54 +390,32 @@
     listing only, % shows only the code and not formatted in LaTeX
 }
 
-\newtcbinputlisting[auto counter, number within=\useCounterWithin]{\inputcode}[3]{
-    enhanced, % enhanced styling capabilities
-    frame hidden, % hides the ugly frame even if its 0mm wide
-    borderline north = {1pt}{0pt}{black}, % sets a line top of the code
-    borderline south = {1pt}{0pt}{black}, % sets a line bottom of the code
-    borderline north = {0.5pt}{20pt}{black}, % sets a line under the headin (only for one row heading)
-    opacityfill=0, % no background colors
-    left=1mm, % left distance from frame to code
-    right=1mm, % right distance from frame to code
-    toptitle=0mm, % top distance from line to title
-    bottomtitle=2mm, % bottom distance from line to title
-    top=-5mm, % distance between title box and code
-    coltitle=black, % color of the title
-    listing engine=minted, % engine used to colorize code
-    minted language={#1}, % minted language for correct colorization
-    breakable, % allows code to break over pages
-    listing only, % shows only the code and not formatted in LaTeX
-    listing file={#2},
-    title={\captionof{cde}{#3}}, % title of the code example with a hacky way to let it into the list of code
-}
-
-% \NewTCBInputListing[auto counter, number within=\useCounterWithin]{\inputtest}{ O{}+m+O{#2}+m }
-
-\newtcbinputlisting[auto counter, number within=\useCounterWithin]{\inputcodelinerange}[5]{
-    enhanced, % enhanced styling capabilities
-    frame hidden, % hides the ugly frame even if its 0mm wide
-    borderline north = {1pt}{0pt}{black}, % sets a line top of the code
-    borderline south = {1pt}{0pt}{black}, % sets a line bottom of the code
-    borderline north = {0.5pt}{20pt}{black}, % sets a line under the headin (only for one row heading)
-    opacityfill=0, % no background colors
-    left=1mm, % left distance from frame to code
-    right=1mm, % right distance from frame to code
-    toptitle=0mm, % top distance from line to title
-    bottomtitle=2mm, % bottom distance from line to title
-    top=-5mm, % distance between title box and code
-    coltitle=black, % color of the title
-    listing engine=minted, % engine used to colorize code
-    minted language={#1}, % minted language for correct colorization
-    breakable, % allows code to break over pages
-    listing only, % shows only the code and not formatted in LaTeX
-    listing file={#2},
-    minted options={firstline=#4,lastline=#5},
-    title={\captionof{cde}{#3}}, % title of the code example with a hacky way to let it into the list of code
+\NewTCBInputListing[auto counter, number within=\useCounterWithin]{\inputcode}{ O{} m m m }{
+  enhanced, % enhanced styling capabilities
+  frame hidden, % hides the ugly frame even if its 0mm wide
+  borderline north = {1pt}{0pt}{black}, % sets a line top of the code
+  borderline south = {1pt}{0pt}{black}, % sets a line bottom of the code
+  borderline north = {0.5pt}{20pt}{black}, % sets a line under the headin (only for one row heading)
+  opacityfill=0, % no background colors
+  left=1mm, % left distance from frame to code
+  right=1mm, % right distance from frame to code
+  toptitle=0mm, % top distance from line to title
+  bottomtitle=2mm, % bottom distance from line to title
+  top=-5mm, % distance between title box and code
+  coltitle=black, % color of the title
+  listing engine=minted, % engine used to colorize code
+  minted language={#2}, % minted language for correct colorization
+  breakable, % allows code to break over pages
+  listing only, % shows only the code and not formatted in LaTeX
+  listing file={#3},
+  title={\captionof{cde}{#4}}, % title of the code example with a hacky way to let it into the list of code
+  #1
 }
 
 \captionsetup{hypcap=false} % needs to stay here to omit a warning when \inputcode is used.
 
-\newcommand\tcb@cnt@codeblockautorefname{Code} % set name for autoref to "Code"
+\newcommand\tcb@cnt@codeblockautorefname{Code} % set name for codeblock autoref to "Code"
+\newcommand\tcb@cnt@inputcodeautorefname{Code} % set name for inputcode autref to "Code"
 
 %% Hyperref configuration %%
 \hypersetup{
