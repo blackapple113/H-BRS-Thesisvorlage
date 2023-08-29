@@ -1,6 +1,49 @@
 % !TeX root = Documentation.tex
 \documentclass[german,report,noglossaries]{hbrs-thesis}
 
+% \usepackage{showframe}
+
+\NewTCBListing{showcode}{ m !O{} }{
+  enhanced,
+  frame hidden,
+  borderline west={2pt}{0pt}{cyan},
+  sharp corners,
+  toptitle=0mm,
+  coltitle=black,
+  listing engine=minted,
+  minted language=#1,
+  breakable,
+  minted options={linenos=false},
+  colframe=cyan,%   colframe=black!30!white,
+  colback=white,
+  boxrule=1pt,
+  segmentation style={line width=1pt},
+  grow to left by=6mm,
+  grow to right by=0mm,
+  left*=0mm,
+  right*=0mm,
+  #2
+}
+
+\NewTColorBox{showcase}{ O{} }{
+  enhanced,
+  frame hidden,
+  borderline west={2pt}{0pt}{cyan},
+  sharp corners,
+  toptitle=0mm,
+  coltitle=black,
+  breakable,
+  colframe=cyan,
+  colback=white,
+  boxrule=1pt,
+  segmentation style={line width=1pt},
+  grow to left by=6mm,
+  grow to right by=0mm,
+  left*=0mm,
+  right*=0mm,
+  #1
+}
+
 \begin{document}
 \begin{titlepage}
     \begin{center}

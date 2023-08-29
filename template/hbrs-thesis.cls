@@ -298,8 +298,8 @@
 	tabsize=4, % number of spaces for a tabstop
 	tab=\textcolor{lightGrey}{\hfill\ensuremath{\rightarrow}\hfill}, % Formatting of the tab stop symbol
 	breaklines=true, % Breaks the code if the code is too long
-	breakafter=\{;+.\space\,(, % Specifies the characters after which a break can be made
-	breakbefore=\}), % Specifies which characters can be broken before
+	breakafter=\};+.\space\,(], % Specifies the characters after which a break can be made
+	breakbefore=\{)[, % Specifies which characters can be broken before
 	breakaftersymbolpre=\textcolor{Red}{\ensuremath{_\lcurvearrowsw}}, % Formatting of the break symbol
 	breakbeforesymbolpre=\textcolor{Red}{\ensuremath{_\lcurvearrowsw}}, % Formatting of the break symbol
 	breaksymbol=\raisebox{0.4ex}{\textcolor{Red}{\ensuremath{\rcurvearrowse}}}, % Formatting of the break symbol
@@ -353,41 +353,46 @@
 \renewcommand*{\bibfont}{\small} % Make the font of the bibliography smaller for better compatibility with ieee standard
 
 %% Tcolorbox configuration %%
-\tcbuselibrary{minted,breakable,skins}
-
-\newtcblisting[auto counter, number within=\useCounterWithin]{codeblock}[2][]{
-    enhanced, % enhanced styling capabilities
-    frame hidden, % hides the ugly frame even if its 0mm wide
-    borderline north = {1pt}{0pt}{black}, % sets a line top of the code
-    borderline south = {1pt}{0pt}{black}, % sets a line bottom of the code
-    borderline north = {0.5pt}{20pt}{black}, % sets a line under the headin (only for one row heading)
-    opacityfill=0, % no background colors
-    left=1mm, % left distance from frame to code
-    right=1mm, % right distance from frame to code
-    toptitle=0mm, % top distance from line to title
-    bottomtitle=2mm, % bottom distance from line to title
-    top=-5mm, % distance between title box and code
-    coltitle=black, % color of the title
-    listing engine=minted, % engine used to colorize code
-    minted language=#1, % minted language for correct colorization
-    breakable, % allows code to break over pages
-    listing only, % shows only the code and not formatted in LaTeX
-    title={\captionof{cde}{#2}}, % title of the code example with a hacky way to let it into the list of code
+\tcbuselibrary{
+  minted, % code highlighting with python pygments
+  breakable, % let the tcolorboxes break (e.g. over page breaks or manually)
+  skins % better designs for tcolorboxes
 }
 
-\newtcblisting{code}[1][]{
-    enhanced, % enhanced styling capabilities
-    frame hidden, % hides the ugly frame even if its 0mm wide
-    opacityfill=0, % no background colors
-    left=1mm, % left distance from frame to code
-    right=1mm, % right distance from frame to code
-    toptitle=0mm, % top distance from line to title
-    bottomtitle=2mm, % bottom distance from line to title
-    top=0mm, % distance between title box and code
-    coltitle=black, % color of the title
-    listing engine=minted, % engine used to colorize code
-    minted language=#1, % minted language for correct colorization
-    listing only, % shows only the code and not formatted in LaTeX
+\NewTCBListing[auto counter, number within=\useCounterWithin]{codeblock}{ m m !O{} }{
+  enhanced, % enhanced styling capabilities
+  frame hidden, % hides the ugly frame even if its 0mm wide
+  borderline north = {1pt}{0pt}{black}, % sets a line top of the code
+  borderline south = {1pt}{0pt}{black}, % sets a line bottom of the code
+  borderline north = {0.5pt}{20pt}{black}, % sets a line under the headin (only for one row heading)
+  opacityfill=0, % no background colors
+  left=1mm, % left distance from frame to code
+  right=1mm, % right distance from frame to code
+  toptitle=0mm, % top distance from line to title
+  bottomtitle=2mm, % bottom distance from line to title
+  top=-5mm, % distance between title box and code
+  coltitle=black, % color of the title
+  listing engine=minted, % engine used to colorize code
+  minted language=#1, % minted language for correct colorization
+  breakable, % allows code to break over pages
+  listing only, % shows only the code and not formatted in LaTeX
+  title={\captionof{cde}{#2}}, % title of the code example with a hacky way to let it into the list of code
+  #3
+}
+
+\NewTCBListing{code}{ m !O{} }{
+  enhanced, % enhanced styling capabilities
+  frame hidden, % hides the ugly frame even if its 0mm wide
+  opacityfill=0, % no background colors
+  left=-4.8pt, % left distance from frame to code
+  right=-4.8pt, % right distance from frame to code
+  coltitle=black, % color of the title
+  listing engine=minted, % engine used to colorize code
+  minted language=#1, % minted language for correct colorization
+  minted options={linenos=false},
+  breakable, % allows code to break over pages
+  listing only, % shows only the code and not formatted in LaTeX
+  #2
 }
 
 \NewTCBInputListing[auto counter, number within=\useCounterWithin]{\inputcode}{ O{} m m m }{

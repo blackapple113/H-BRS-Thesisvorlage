@@ -7,45 +7,37 @@ Diese Klasse verwendet das Paket \texttt{minted} (siehe \url{https://www.ctan.or
 \subsection{Inline Code}
 Code, der im Text stehen soll, kann auf verschiedene Arten erreicht werden. Die einfachste ist die Verwendung von \texttt{\textbackslash{}texttt\{…\}}. Dabei wird allerdings kein Syntax Highlighting verwendet. Der Text wird innerhalb dieser Umgebung nur an Leerzeichen umgebrochen und nicht innerhalb der Wörter.
 
-Eine weitere Möglichkeit für Syntax Highlighting im Fließtext bietet \texttt{minted} mit dem Befehl \mintinline{latex}{\mintinline{sprache}{code}}. Dieser Befehl kann zusätzlich an vorgegebenen Stellen den Text umbrechen, was dennoch zu Problemen bei der Formatierung am Rand führen kann.
+Eine weitere Möglichkeit für Syntax Highlighting im Fließtext bietet \texttt{minted} mit dem Befehl \mintinline{latex}{\mintinline{sprache}{codeblock}}. Dieser Befehl kann zusätzlich an vorgegebenen Stellen den Text umbrechen, was dennoch zu Problemen bei der Formatierung am Rand führen kann.
 
 \subsection{Block Code}
 Oft ist es notwendig Programmcode im Dokument darstellen zu können. Für diesen Zweck gibt es zwei verschiedene Möglichkeiten. Zum einen kann der Code direkt in die \LaTeX-Datei geschrieben werden, was bei Änderungen zu manuellen Anpassungen führt. Zum anderen kann der Code auch aus den Dateien importiert werden. \textbf{Aufgrund von Limitierungen von minted und TeX kann es zur Ausführung von Code kommen, weshalb nur bekannter Code geladen werden sollte!}
 
-Code kann wie in \autoref{chap:klassenoptionen} ohne starkes visuelles Absetzen direkt unter den Text geschrieben werden, in dem die Umgebung \texttt{code} verwendet wird.
+Code kann wie in \autoref{chap:klassenoptionen} ohne starkes visuelles Absetzen direkt unter den Text geschrieben werden, in dem die Umgebung \texttt{codeblock} verwendet wird.
 
-\begin{code}[latex]
-    \begin{code}[python]
+\begin{showcode}{latex}
+    \begin{code}{python}
         if __name__ == "__main__":
             print("Hello World!")
-    \end{…} % ersetze … durch "code"
-\end{code}
+    \end{code}
+\end{showcode}
 
-Um den Code optisch durch Linien klar abzugrenzen, wird die Umgebung \texttt{codeblock} verwendet. Dieser Codeblock eignet sich vor allem für größere Codebereiche. Zusätslich kann ein Label für die Referenzierung auf den Code hinzugefügt werden.
+Um den Code optisch durch Linien klar abzugrenzen, wird die Umgebung \texttt{codeblock} verwendet. Dieser Codeblock eignet sich vor allem für größere Codebereiche. Zusätzlich können weitere von \mintinline{latex}{\NewTCBInputListing} bereitgestellte Optionen konfiguriert werden (siehe \url{https://www.ctan.org/pkg/tcolorbox}).
 
-\begin{code}[latex]
-    \begin{codeblock}[python,label={code:python-class}]
-        class Test:
-            __init__(self):
-                self.x = 5
-
+\begin{showcode}{latex}
+    \begin{codeblock}{python}{Hello World in Python}[label={code:python-class}]
         if __name__ == "__main__":
             print("Hello World!")
     \end{codeblock}
-\end{code}
+\end{showcode}
 
 Wie oben schon beschrieben kann Code auch aus anderen Dateien geladen werden. Dies geschieht mithilfe des Befehls \mintinline{latex}{\inputcode{language}{path/to/file}{title}}.
 
-\begin{code}[latex]
+\begin{showcode}{latex}
     \inputcode{java}{assets/code/Test.java}{Java Testdatei}
-\end{code}
+\end{showcode}
 
-\inputcode{java}{assets/code/Test.java}{Java Testdatei}
+Soll nur ein bestimmter Bereich an Zeilennummern aus Code-Dateien angezeigt werden können die Zeilen als Zeilennummern (jeweils inklusiv) angegeben werden. Generell können über diesen Shortcut weitere von \mintinline{latex}{\NewTCBInputListing} bereitgestellte Optionen konfiguriert werden (siehe \url{https://www.ctan.org/pkg/tcolorbox}).
 
-Soll nur ein bestimmter Bereich an Zeilennummern aus Code-Dateien angezeigt werden können die Zeilen als Zeilennummern (jeweils inklusiv) angegeben werden. Generell können über diesen Shortcut weitere von \mintinline{latex}{\NewTCBInputListing} bereitgestellte Optionen konfiguriert werden (siehe \url{https://www.ctan.org/pkg/tcolorbox}). So zum Beispiel auch die Angabe der \texttt{label} Option für die Referenzierung auf Codeabschnitte siehe \autoref{code:inputcode}. 
-
-\begin{code}[latex]
-\inputcode[minted options={firstline=2,lastline=4},label={code:inputcode}]{java}{assets/code/Test.java}{Java Testdatei Zeilen 2 - 4}
-\end{code}
-
-\inputcode[minted options={firstline=2,lastline=4},label={code:inputcode}]{java}{assets/code/Test.java}{Java Testdatei Zeilen 2 - 4}
+\begin{showcode}{latex}
+    \inputcode[minted options={firstline=2,lastline=4}]{java}{assets/code/Test.java}{Java Testdatei Zeilen 2 - 4}
+\end{showcode}
