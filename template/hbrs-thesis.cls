@@ -198,6 +198,8 @@
   tocindent=4em,
 ]{paragraph}
 
+\DeclareTOCStyleEntry[numwidth=1.5em,indent=3em]{tocline}{subfigure}
+
 \renewcommand{\dictumwidth}{0.5\textwidth} % Allows a direct citate (dictum) with Author
 
 %% Header, footer, page layout %%
