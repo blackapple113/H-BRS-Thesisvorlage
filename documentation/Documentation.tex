@@ -1,7 +1,7 @@
 % !TeX root = Documentation.tex
 \documentclass[german,report,noglossaries]{hbrs-thesis}
 
-% \usepackage{showframe}
+\usepackage{blindtext}
 
 \NewTCBListing{showcode}{ m !O{} }{
   enhanced,
@@ -16,6 +16,7 @@
   minted options={linenos=false},
   colframe=cyan,
   colback=white,
+  opacityback=0,
   boxrule=1pt,
   segmentation style={line width=1pt},
   grow to left by=6mm,
@@ -25,7 +26,7 @@
   #2
 }
 
-\NewTColorBox{showcase}{ O{} }{
+\NewTColorBox{showcase}{ !O{} }{
   enhanced,
   frame hidden,
   borderline west={2pt}{0pt}{cyan},
@@ -35,6 +36,7 @@
   breakable,
   colframe=cyan,
   colback=white,
+  opacityback=0,
   boxrule=1pt,
   segmentation style={line width=1pt},
   grow to left by=6mm,
@@ -63,6 +65,8 @@
 \input{chapter/Vorwort}
 \input{chapter/Verwendung}
 \input{chapter/Klassenoptionen}
-\input{chapter/Funktionen}
+\input{chapter/Generelles}
+\input{chapter/Bilder}
+\input{chapter/Code}
 
 \end{document}

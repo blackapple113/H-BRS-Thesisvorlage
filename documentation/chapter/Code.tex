@@ -1,15 +1,12 @@
-\chapter{Funktionen der Klasse}
-In diesem Kapitel werden die wichtigsten integrierten Funktionen der Klasse erklärt und mit Beispielen veranschaulicht. Nochmal der Hinweis, dass nicht sämtliche Funktionen der integrierten Pakete erläuter werden, sondern eine Verwendung innerhalb dieser Klasse für den einfachen Gebrauch dargestellt wird. Optionen der einzelnen Pakete können in \texttt{hbrs-thesis.cls} geändert werden. Dokumentation zu den einzelnen Paketen findet sich auf \url{https://www.ctan.org/}.
+\chapter{Code}
+Diese Klasse verwendet das Paket \texttt{minted} (siehe \url{https://www.ctan.org/pkg/minted}) für Syntax Highlighting. Das Paket basiert auf \textit{Pygments} (siehe \url{https://pygments.org/}) welches mit Python auf dem System installiert sein sollte, solange kein Docker-Container zum Bauen bereitsteht. Außerdem muss für das Kompilieren die Option \texttt{-shell-escape} hinzugefügt werden, also \mintinline{bash}{latexmk -shell-escape file.tex}. Die von \texttt{minted} unterstützten sprachen für Highlighting sind unter folgender Adresse aufgelistet: \url{https://pygments.org/docs/lexers/}
 
-\section{Code}
-Diese Klasse verwendet das Paket \texttt{minted} (siehe \url{https://www.ctan.org/pkg/minted}) für Syntax Highlighting. Das Paket basiert auf \textit{Pygments} (siehe \url{https://pygments.org/}) welches mit Python auf dem System installiert sein sollte, solange kein Docker-Container zum Bauen bereitsteht. Außerdem muss für das Kompilieren die Option \texttt{-shell-escape} hinzugefügt werden, also \mintinline{bash}{latexmk -shell-escape file.tex}.
-
-\subsection{Inline Code}
+\section{Inline Code}
 Code, der im Text stehen soll, kann auf verschiedene Arten erreicht werden. Die einfachste ist die Verwendung von \texttt{\textbackslash{}texttt\{…\}}. Dabei wird allerdings kein Syntax Highlighting verwendet. Der Text wird innerhalb dieser Umgebung nur an Leerzeichen umgebrochen und nicht innerhalb der Wörter.
 
 Eine weitere Möglichkeit für Syntax Highlighting im Fließtext bietet \texttt{minted} mit dem Befehl \mintinline{latex}{\mintinline{sprache}{codeblock}}. Dieser Befehl kann zusätzlich an vorgegebenen Stellen den Text umbrechen, was dennoch zu Problemen bei der Formatierung am Rand führen kann.
 
-\subsection{Block Code}
+\section{Block Code}
 Oft ist es notwendig Programmcode im Dokument darstellen zu können. Für diesen Zweck gibt es zwei verschiedene Möglichkeiten. Zum einen kann der Code direkt in die \LaTeX-Datei geschrieben werden, was bei Änderungen zu manuellen Anpassungen führt. Zum anderen kann der Code auch aus den Dateien importiert werden. \textbf{Aufgrund von Limitierungen von minted und TeX kann es zur Ausführung von Code kommen, weshalb nur bekannter Code geladen werden sollte!}
 
 Code kann wie in \autoref{chap:klassenoptionen} ohne starkes visuelles Absetzen direkt unter den Text geschrieben werden, in dem die Umgebung \texttt{codeblock} verwendet wird.

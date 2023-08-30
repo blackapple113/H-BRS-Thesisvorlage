@@ -76,7 +76,7 @@
   outputdir=out,
   newfloat
 ]{minted} % Codehighlighting that requires python and pygmentize to work.
-\RequirePackage{tcolorbox}
+\RequirePackage{tcolorbox} % Allows complex boxes arround nearly everything. Primarily used for code in this class.
 \RequirePackage{float} % This style option also incorporates the functionality of David Carlisle’s style option here, giving floating environments a [H] option which means ‘PUT IT HERE’.
 \RequirePackage{csquotes} % This package provides advanced facilities for inline and display quotations.
 \ifmodernstyle
@@ -96,11 +96,12 @@
 \RequirePackage{graphicx} % Allows the definition of complex colors in one color name.
 \RequirePackage{pgfplots} % Plots written in Python.
 \RequirePackage{tikz} % Super complex graphics purely written in LaTeX.
-\RequirePackage{caption} % Offers customization of captions in floating environments such figure and table.
+\RequirePackage{caption} % Offers customization of captions in floating environments such as figure and table.
 \RequirePackage[
   inkscapelatex=false, % Prevents the text from being rendered in the font used. This preserves the in the image used font.
   inkscapepath=out/svg-inkscape % Sets the output-folder for compilation files.
 ]{svg} % Allows the use of SVG in LaTeX but requires the software Inkscape to be installed on the system.
+\RequirePackage{wrapfig2} % Allows text to float around images in text.
 \RequirePackage{mathtools} % Extension package to amsmath to correct bugs and provide useful tools.
 \RequirePackage{amsfonts} % Contains fonts of symbols and several alphabets corresponding to symbols and alphabets used in AMS publications.
 \RequirePackage{amssymb} % Deﬁnes all the symbols found in the AMS symbol fonts msam and msbm.
@@ -281,7 +282,7 @@
 \definecolor{plot3}{HTML}{e51d7b}
 \definecolor{plot4}{HTML}{531de5}
 \definecolor{plot5}{HTML}{e5921d}
-\definecolor{plot6}{HTML}{1de574}
+\definecolor{plot6}{HTML}{5D4037}
 
 %% Codeexample configuration %%
 \setminted{
@@ -365,7 +366,7 @@
   borderline north = {1pt}{0pt}{black}, % sets a line top of the code
   borderline south = {1pt}{0pt}{black}, % sets a line bottom of the code
   borderline north = {0.5pt}{20pt}{black}, % sets a line under the headin (only for one row heading)
-  opacityfill=0, % no background colors
+  opacityback=0, % no background colors
   left=1mm, % left distance from frame to code
   right=1mm, % right distance from frame to code
   toptitle=0mm, % top distance from line to title
@@ -383,7 +384,7 @@
 \NewTCBListing{code}{ m !O{} }{
   enhanced, % enhanced styling capabilities
   frame hidden, % hides the ugly frame even if its 0mm wide
-  opacityfill=0, % no background colors
+  opacityback=0, % no background colors
   left=-4.8pt, % left distance from frame to code
   right=-4.8pt, % right distance from frame to code
   coltitle=black, % color of the title
