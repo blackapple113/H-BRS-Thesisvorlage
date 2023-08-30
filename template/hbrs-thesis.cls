@@ -97,7 +97,7 @@
 \RequirePackage{pgfplots} % Plots written in Python.
 \RequirePackage{tikz} % Super complex graphics purely written in LaTeX.
 \RequirePackage{caption} % Offers customization of captions in floating environments such as figure and table.
-\RequirePackage{subcaption} % Allows sub-captions for divided figures
+\RequirePackage[list=on]{subcaption} % Allows sub-captions for divided figures
 \RequirePackage[
   inkscapelatex=false, % Prevents the text from being rendered in the font used. This preserves the in the image used font.
   inkscapepath=out/svg-inkscape % Sets the output-folder for compilation files.
