@@ -181,6 +181,23 @@
   toc=listof, % Displays all directories in the table of contents
 }
 
+% Sets the indentation of each section in the table of contents lower than standard configuration
+\RedeclareSectionCommands[
+  tocindent=1em,
+]{section}
+
+\RedeclareSectionCommands[
+  tocindent=2em,
+]{subsection}
+
+\RedeclareSectionCommands[
+  tocindent=3em,
+]{subsubsection}
+
+\RedeclareSectionCommands[
+  tocindent=4em,
+]{paragraph}
+
 \renewcommand{\dictumwidth}{0.5\textwidth} % Allows a direct citate (dictum) with Author
 
 %% Header, footer, page layout %%
