@@ -3,6 +3,7 @@
 \section{Referenzen}
 \label{sec:referenzen}
 \begin{wraptable}{r}{0.4\textwidth}
+    \vspace{-2em}
     \captionabove{Präfixe für Referenzen}
     \centering
     \begin{tblr}{ll}
@@ -13,7 +14,9 @@
         sec: & section \\
         subsec: & subsection \\
         fig: & figure \\
+        subfig: & sub figure \\
         tab: & table \\
+        subtab: & sub table \\
         eq: & equation \\
         code: & code listing \\
         itm: & enumerated list item \\
@@ -33,7 +36,7 @@ Die Funktion \mintinline{latex}{\label{}} in \LaTeX dient dazu, Markierungen inn
     Wie in \autoref{subsec:beispiel-fuer-referenzen} beschrieben…
 \end{showcode}
 
-Bei der Vergabe eindeutiger Bezeichner für die Referenzierung sollte darauf geachtet werden, dass lediglich ASCII-Zeichen verwendet werden. Je nach Kodierung der Quelldatei können Sonderzeichen sonst zu Fehlermeldungen führen.
+Bei der Vergabe eindeutiger Bezeichner für die Referenzierung sollte darauf geachtet werden, dass lediglich ASCII-Zeichen verwendet werden. Je nach Kodierung der Quelldatei können Sonderzeichen sonst zu Fehlermeldungen führen. Sollten Teilelemente (sub figure, sub table) referenziert werden existieren zwei Möglichkeiten. Angenommen man benennt ein Teilelement mit \mintinline{latex}{\label{subfig:testbild}}, kann mit \mintinline{latex}{\autoref{sub@subfig:testbild}} allein auf die Nummerierung des Teilelements verwiesen werden, wohingegen mit \mintinline{latex}{\autoref{subfig:testbild}} die Abbildungsnummer der übergeordneten Beschriftung vorangestellt wird. Beispiele und näheres dazu in \autoref{chap:bilder}.
 
 \subsection{Weitere Referenzmöglichkeiten}
 
@@ -56,6 +59,8 @@ Trotz der automatischen Platzierung von Fließumgebungen in \LaTeX gibt es Situa
 In \LaTeX ermöglicht der Befehl \mintinline{latex}{\caption{}} das Hinzufügen von Beschriftungen zu Fließumgebungen. Diese Beschriftungen bieten eine kurze Erklärung oder Bezeichnung für das jeweilige Element. Beschriftungen sind hilfreich, um den Inhalt für den Leser zu erläutern und in den Kontext des Dokuments zu setzen. Darüber hinaus generiert \LaTeX automatisch die richtige Nummerierung für Abbildungen und Tabellen, was die Konsistenz und Verwaltung erleichtert. Durch die Kombination von \mintinline{latex}{\caption{}} mit \mintinline{latex}{\label{}} können Sie außerdem Referenzen zu diesen Elementen erstellen, die im Text automatisch die korrekte Nummer und Bezeichnung anzeigen (vgl. \autoref{itm:autoref}). Mit dem Befehl \mintinline{latex}{\captionof{float}{}} können Beschriftungen auch außerhalb von Fließumgebungen für bestimmte Elemente gesetzt werden. 
 
 Für Tabellen werden in wissenschaftlichen Artikeln die Beschriftungen häufig oberhalb des Elements gesetzt, da die Beschriftung unterhalb der Tabelle bei langen Tabellen zu spät gelesen wird. Bei Bildern hingegen sind die Beschriftungen unterhalb des Elements. Da die Formatierung von \LaTeX diesen Unterschied bei Tabellen nicht berücksichtigt existiert in diesem Dokument der Befehl \mintinline{latex}{\captionabove{}}, welcher den Abstand zwischen Beschriftung und Tabelle korrigiert.
+
+Werden mehrere Tabellen oder Bilder in einer Fließumgebung nebeneinander gezeigt sollten auch die Teilelemente einzelne Beschriftungen bekommen. Diese können mit dem Befehl \mintinline{latex}{\subcaption{}} erstellt werden.
 
 \subsection{Zentrierung}
 Es ist oft sinnvoll, Fließumgebungen wie Tabellen oder Bilder zu zentrieren, insbesondere wenn sie nicht die volle Textbreite ausfüllen. Dies trägt zur ästhetischen Gestaltung des Dokuments bei und sorgt dafür, dass diese Elemente optisch ausgerichtet und präsentiert werden. Es gibt zwei gängige Möglichkeiten, dies in \LaTeX zu erreichen.
@@ -87,3 +92,54 @@ Die zweite Möglichkeit ist die Verwendung des Befehls \mintinline{latex}{\cente
 \end{showcase}
 
 Beide Methoden zentrieren den Inhalt horizontal im Dokument. Mit der \texttt{center}-Umgebung erhalten wir jedoch keine Fließumgebung, weshalb wir für eine Beschriftung des Bildes den Befehl \mintinline{latex}{\captionof{figure}{}} verwenden müssen. Wie in \autoref{sec:fliessumgebungen} beschrieben ist auch keine optimierte Positionierung des Elements durch \LaTeX möglich.
+
+\section{Minipage}
+\label{sec:minipage}
+Mit der Umgebung \texttt{minipage} können in \LaTeX Elemente wie Bilder, Tabellen aber auch Texte in ihrer Größe begrenzt und nebeneinander platziert werden. Eine \texttt{minipage}-Umgebung wird wie folgt definiert:
+
+\begin{code}{latex}
+    \begin{minipage}[outer position][height][inner pos]{width}
+        % Inhalt
+    \end{minipage}
+\end{code}
+
+\begin{description}
+    \item[\mintinline{latex}{width}] Die Breite ist eine Pflichtangabe und beschreibt, wie breit die \texttt{minipage} sein soll. Hierbei empfehlen sich angaben wie bei Bildern mit \mintinline{latex}{\columnwidth}, \mintinline{latex}{\textwidth} oder \mintinline{latex}{\linewidth}.
+    \item[\mintinline{latex}{outer position}] Gibt an, wie die \texttt{minibox} ausgerichtet werden soll.
+    \item[\mintinline{latex}{height}] Die Größe der \texttt{minibox} ist dynamisch an den Inhalt angepasst. Mit dieser Angabe kann die Höhe der Box verändert werden.
+    \item[\mintinline{latex}{inner pos}] Gibt die vertikale Positionierung des Textes innerhalb der Box an, wenn die Box größer ist, als der Text.
+\end{description}
+
+\subsection{Äusere Positionierung (outer position)}
+\begin{showcode}{latex}
+    Grundlinie
+    \begin{minipage}[b]{0.17\linewidth}
+        \textbf{Eine \texttt{minipage} unten ausgerichtet.}
+    \end{minipage}
+    ------------
+    \begin{minipage}{0.17\linewidth}
+        \textbf{Eine \texttt{minipage} mittig ausgerichtet.}
+    \end{minipage}
+    ------------
+    \begin{minipage}[t]{0.17\linewidth}
+        \textbf{Eine \texttt{minipage} oben ausgerichtet.}
+    \end{minipage}
+    Grundlinie
+\end{showcode}
+
+\subsection{Innere Positionierung (inner position)}
+\begin{showcode}{latex}
+    Grundlinie
+    \begin{minipage}[b][3cm][t]{0.17\linewidth}
+        \textbf{Ein Paragraph oben ausgerichtet.}
+    \end{minipage}
+    ------------
+    \begin{minipage}[b][3cm][c]{0.17\linewidth}
+        \textbf{Ein Paragraph mittig ausgerichtet.}
+    \end{minipage}
+    ------------
+    \begin{minipage}[b][3cm][b]{0.17\linewidth}
+        \textbf{Ein Paragraph unten ausgerichtet.}
+    \end{minipage}
+    Grundlinie
+\end{showcode}
