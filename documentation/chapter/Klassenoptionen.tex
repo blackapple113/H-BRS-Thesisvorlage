@@ -10,7 +10,11 @@ Eine Pflichtoption, welche für eine korrekte Worttrennung verwendet werden muss
 …
 \end{code}
 
-Werden bilinguale Spracheinstellungen im Dokument benötigt, müssen in der Klassendatei \texttt{hbrs-thesis.cls} Einstellungen für das Paket \texttt{babel} getroffen werden. Das Paket befindet sich unter der Region \texttt{Required packages}. Ist die Hauptsprache des Dokuments Englisch, kommen aber durchaus Deutsche Begriffe darin vor, eignet sich die Konfiguration \mintinline{latex}{\RequirePackage[ngerman,english]{babel}}. Die zuletzt angegebene Sprache ist die Hauptsprache. \textbf{Mit dieser manuellen Konfiguration der Sprache darf keine Sprache als Klassenoption gesetzt werden!}
+Werden bilinguale Spracheinstellungen im Dokument benötigt, müssen in der Klassendatei \texttt{hbrs-thesis.cls} Einstellungen für das Paket \texttt{babel} getroffen werden. Das Paket befindet sich unter der Region \texttt{Required packages}. Ist die Hauptsprache des Dokuments Englisch, kommen aber durchaus Deutsche Begriffe darin vor, eignet sich die Konfiguration \mintinline{latex}{\RequirePackage[ngerman,english]{babel}}. Die zuletzt angegebene Sprache ist die Hauptsprache.
+
+\begin{information}
+    Wird die Sprache über die Optionsmöglichkeiten für das Paket \texttt{babel} direkt in \texttt{hbrs-template.cls} geändert, dürfen keine Sprachangaben als Klassenoptionen gesetzt werden.
+\end{information}
 
 \section{Stiloptionen}
 Die Klasse besitzt ein paar Optionen, um verschiedene Stile anzubieten. Mithilfe der Option \texttt{classicstyle} bzw. \texttt{modernstyle} kann zwischen einer Schriftart mit Serifen und einer serifenlosen Schriftart (was sind Serifen: \url{https://de.wikipedia.org/wiki/Serife}) unterschieden werden. Serifen sollen dem Lesenden helfen die Zeilen besser zu verfolgen, um während des Lesens nicht in der Zeile zu verrutschen, sind aber auf Bildschirmen teilweise schlechter darzustellen. Der Standard ist hier \texttt{modernstyle} und muss somit nicht explizit angegeben.

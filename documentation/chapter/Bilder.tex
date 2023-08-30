@@ -87,6 +87,10 @@ Die in diesem Beispiel gezeigten Unterschiede sind so gering, dass sie bei der e
 \section{Teilbilder}
 Wie in \autoref{subsec:vergleich-svg-vs-pdf-grafik} als Vergleichsabbildung zwischen SVG- und PDF-Grafiken verwendet, müssen manchmal mehrere Bilder nebeneinander platziert werden. Diese können unabhängig voneinander Beschriftet werden oder als Teil der übergeordneten Fließumgebung. Um Bilder nebeneinander platzieren zu können, wird die Umgebung \texttt{minipage} (siehe \autoref{sec:minipage}) verwendet. Im Folgenden ein paar Beispiele für die Anordnung von Bildern in einer Reihe.
 
+\begin{information}
+    Die Nummerierung in den folgenden Beispielen, sowie im Abbildungsverzeichnis ist etwas durcheinander. Das liegt an der Art und Weise, wie die Beispiele präsentiert werden. Unter Verwendung des dargestellten Codes passieren diese Fehler nicht.
+\end{information}
+
 \begin{showcase}
     \begin{code}{latex}
         \begin{figure}
@@ -124,7 +128,7 @@ Wie in \autoref{subsec:vergleich-svg-vs-pdf-grafik} als Vergleichsabbildung zwis
         \begin{figure}[H]
             \begin{minipage}[c]{0.27\columnwidth}
                 \includegraphics[width=\linewidth,height=6cm,keepaspectratio]{assets/images/bilder/pexels-eberhard-grossgasteiger-2437291.jpg}
-                \subcaption{Hügelige Landschaft}
+                \subcaption{Landschaft}
             \end{minipage}
             \hfill
             \begin{minipage}[c]{0.72\columnwidth}
@@ -139,7 +143,7 @@ Wie in \autoref{subsec:vergleich-svg-vs-pdf-grafik} als Vergleichsabbildung zwis
         \captionsetup{type=figure}
         \begin{subfigure}{0.27\columnwidth}
             \includegraphics[width=\linewidth,height=6cm,keepaspectratio]{assets/images/bilder/pexels-eberhard-grossgasteiger-2437291.jpg}
-            \caption{Hügelige Landschaft}
+            \caption{Landschaft}
         \end{subfigure}
         \hfill
         \begin{subfigure}{0.72\columnwidth}

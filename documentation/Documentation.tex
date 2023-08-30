@@ -4,7 +4,7 @@
 \usepackage{blindtext}
 
 \NewTCBListing{showcode}{ m !O{} }{
-  enhanced,
+  enhanced jigsaw,
   frame hidden,
   borderline west={2pt}{0pt}{cyan},
   sharp corners,
@@ -27,7 +27,7 @@
 }
 
 \NewTColorBox{showcase}{ !O{} }{
-  enhanced,
+  enhanced jigsaw,
   frame hidden,
   borderline west={2pt}{0pt}{cyan},
   sharp corners,
@@ -43,6 +43,18 @@
   grow to right by=0mm,
   left*=0mm,
   right*=0mm,
+  #1
+}
+
+\newtcolorbox{information}[1][]{%
+  enhanced jigsaw, % better frame drawing
+  borderline west={2pt}{0pt}{cyan}, % straight vertical line at the left edge
+  sharp corners, % No rounded corners
+  boxrule=0pt, % no real frame,
+  fonttitle={\bfseries},
+  coltitle={black},  % Black colour for title
+  title={Information: \ },  % Fixed title
+  attach title to upper, % Move the title into the box
   #1
 }
 
