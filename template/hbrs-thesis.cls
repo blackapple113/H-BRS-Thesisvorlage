@@ -97,7 +97,7 @@
 \RequirePackage{pgfplots} % Plots written in Python.
 \RequirePackage{tikz} % Super complex graphics purely written in LaTeX.
 \RequirePackage{caption} % Offers customization of captions in floating environments such as figure and table.
-\RequirePackage[list=on]{subcaption} % Allows sub-captions for divided figures
+\RequirePackage[list=on,labelformat=simple]{subcaption} % Allows sub-captions for divided figures
 \RequirePackage[
   inkscapelatex=false, % Prevents the text from being rendered in the font used. This preserves the in the image used font.
   inkscapepath=out/svg-inkscape % Sets the output-folder for compilation files.
@@ -198,7 +198,7 @@
   tocindent=4em,
 ]{paragraph}
 
-\DeclareTOCStyleEntry[numwidth=1.5em,indent=3em]{tocline}{subfigure}
+\DeclareTOCStyleEntry[indent=3em]{tocline}{subfigure}
 
 \renewcommand{\dictumwidth}{0.5\textwidth} % Allows a direct citate (dictum) with Author
 
@@ -460,6 +460,9 @@
   bordercolor=cyan,
   tickmarkheight=0.5em,
 }
+
+%% Subcaption configuration %%
+\renewcommand\thesubfigure{\thefigure.\alph{subfigure}.}
 
 %% Titlepage configuration %%
 \title{\ThesisTitle}
