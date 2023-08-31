@@ -5,12 +5,43 @@ Diese Dokumentvorlage ist ein Ansatz eine modernere, zuverlässiger konfiguriert
 ## Roadmap
 
 * [x] Klassendatei bereitstellen, die ohne großen Aufwand verwendet werden kann.
-* [ ] Setup Guide für VS Code, Overleaf und vielleicht noch andere Editoren bereitstellen.
-* [ ] Beispieldokument erstellen, in denen die wichtigsten Eigenschaften der LaTeX-Klasse gezeigt und erklärt werden.
-* [ ] Docker Container erstellen, der das Bauen übernimmt ohne, dass die Dateien auf dem Rechner installiert sein müssen.
+* [ ] Setup Guide für:
+  * [x] Overleaf
+  * [ ] VS Code
+* [ ] Beispieldokument erstellen, in denen die wichtigsten Eigenschaften der LaTeX-Klasse gezeigt und erklärt werden (in Arbeit, siehe `Documentation.pdf`).
+* [x] Docker Container erstellen, der das Bauen übernimmt ohne, dass die Dateien auf dem Rechner installiert sein müssen.
 * [ ] Kleines Programm erstellen was erlaubt die notwendigen Dateien als Template herunterzuladen und direkt mit dem Schreiben anzufangen.
 
-## Verwendung
+## Setup
+
+Lade dieses Projekt entweder als `.zip`-Datei herunter und entpacke es oder Klone das Projekt über die URL `https://github.com/blackapple113/H-BRS-Thesisvorlage.git`. Navigiere danach in das Projektverzeichnis um den beschriebenen Setup-Möglichkeiten folgen zu können.
+
+<div align="center">
+
+![Download project](assets/images/github_download_project.png)
+
+</div>
+
+### Overleaf
+Komprimiere den Ordner `template` in eine `.zip`-Datei. Gehe dann auf [Overleaf](https://overleaf.com) und Logge dich ein. Nach dem Einloggen oben links auf den Button `Neues Projekt` klicken und im Menü die Option `Projekt hochladen` auswählen.
+
+<div align="center">
+
+![Overleaf upload project](assets/images/overleaf_upload_project.png)
+
+</div>
+
+Im erscheinenden Fenster kann die vorher erstellte `.zip`-Datei per *Drag and Drop* hochgeladen werden. Nach dem Hochladen wird das Kompilieren automatisch angestoßen und das Deckblatt sollte nach kurzer Zeit erscheinen.
+
+<div align="center">
+
+![Overleaf compiled new project](asset/../assets/images/overleaf_compiled_new_project.png)
+
+</div>
+
+Zu Beginn sollten die Angaben auf dem Deckblatt angepasst werden. Diese befinden sich unter `assets/utility/meta.tex`. Jetzt kann das Schreiben beginnen. 
+
+**Viel Erfolg!**
 
 Vor der Verwendung des Templates sollte sichergestellt werden, dass [Inkscape](https://inkscape.org/de/), [Python](https://www.python.org) und das Pythonpaket [Pygments](https://pygments.org/) auf dem System installiert sind.
 
