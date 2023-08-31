@@ -20,7 +20,7 @@ Diese Dokumentvorlage ist ein Ansatz eine modernere, zuverlässiger konfiguriert
     * [x] Container
     * [ ] Dev Container
 * [ ] Beispieldokument erstellen, in denen die wichtigsten Eigenschaften der LaTeX-Klasse gezeigt und erklärt werden (in Arbeit, siehe `Documentation.pdf`).
-* [x] Docker Container erstellen, der das Bauen übernimmt ohne, dass die Dateien auf dem Rechner installiert sein müssen.
+* [x] Docker Container erstellen, der das Bauen übernimmt ohne, dass die notwendige Software auf dem Rechner installiert sein müssen.
 * [ ] Kleines Programm erstellen was erlaubt die notwendigen Dateien als Template herunterzuladen und direkt mit dem Schreiben anzufangen.
 
 ## Setup
