@@ -8,6 +8,7 @@ Diese Dokumentvorlage ist ein Ansatz eine modernere, zuverlässiger konfiguriert
   - [Overleaf](#overleaf)
   - [VS Code](#vs-code)
     - [Manuell](#manuell)
+    - [Container](#container)
 
 ## Roadmap
 
@@ -86,9 +87,16 @@ Für VS Code gibt es unterschiedlichste Möglichkeiten diese Vorlage zu nutzen. 
 
 Nach der Installation der Software und der Extensions müssen die Einstellungen in VS Code noch angepasst werden. Über das Menü `Anzeigen` → `Befehlspalette` die Befehlspalette öffnen und dort `Benutzereinstellungen` eingeben und `Einstellungen: Benutzereinstellungen öffnen (JSON)` auswählen. In die Einstellungen wird dann je nach Betriebssystem die Einstellung aus `assets/settings/linux_mac.json` bzw. `assets/settings/windows.json` eingefügt.
 
-<!-- 
-### Container
 
+#### Container
+
+**Notwendige Software:**
+  - Entweder [Docker Desktop](https://docs.docker.com/desktop/)
+  - oder [Docker Engine](https://docs.docker.com/engine/)
+
+
+
+<!-- 
 ### Dev Container
 **Notwendige Software:**
 - Visual Studio Code
