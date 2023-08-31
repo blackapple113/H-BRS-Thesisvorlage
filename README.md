@@ -1,6 +1,11 @@
-# H-BRS Thesisvorlage
+# H-BRS Thesisvorlage <!-- omit in toc -->
 
 Diese Dokumentvorlage ist ein Ansatz eine modernere, zuverlässiger konfigurierte und einfacher zu verwendende LaTeX-Vorlage zum Schreiben von Abschlussarbeiten und Projektberichten zur Verfügung zu stellen.
+
+## Inhalt <!-- omit in toc -->
+- [Roadmap](#roadmap)
+- [Setup](#setup)
+  - [Overleaf](#overleaf)
 
 ## Roadmap
 
