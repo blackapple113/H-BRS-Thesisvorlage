@@ -9,7 +9,7 @@ fi
 
 echo Compiling $file
 # compile latex files
-latexmk -pdf -file-line-error -outdir=./out/ -shell-escape $file
+latexmk -pdf -interaction=nonstopmode -file-line-error -outdir=./out/ -shell-escape $file
 
 chown -R latex:latex out
 

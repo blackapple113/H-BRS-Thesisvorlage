@@ -17,7 +17,7 @@ Diese Dokumentvorlage ist ein Ansatz eine modernere, zuverlässiger konfiguriert
   * [x] Overleaf
   * [ ] VS Code
     * [x] Manuell
-    * [ ] Container
+    * [x] Container
     * [ ] Dev Container
 * [ ] Beispieldokument erstellen, in denen die wichtigsten Eigenschaften der LaTeX-Klasse gezeigt und erklärt werden (in Arbeit, siehe `Documentation.pdf`).
 * [x] Docker Container erstellen, der das Bauen übernimmt ohne, dass die Dateien auf dem Rechner installiert sein müssen.
@@ -94,7 +94,9 @@ Nach der Installation der Software und der Extensions müssen die Einstellungen 
   - Entweder [Docker Desktop](https://docs.docker.com/desktop/)
   - oder [Docker Engine](https://docs.docker.com/engine/)
 
+Gehe in den Ordner `template` oder extrahiere diesen Ordner als Grundlage der neuen Arbeit aus dem aktuellen Verzeichnis. Innerhalb des `template`-Ordners befindet sich ein Dockerfile, welches das Image für die Kompilierung der LaTeX-Dateien baut. Solange kein Dockerimage direkt zur Verfügung steht, muss das Image selbst gebaut werden mit `docker build -t build-latex .`. Dieser Vorgang dauert 5 - 10 Minuten, muss danach aber nicht mehr wiederholt werden.
 
+Nachdem das Image `build-latex` vorhanden ist, kann das LaTeX-Dokument mit dem Befehl `docker run -v .:/tmp build-latex Document.tex` gebaut werden. Soll das Kompilieren im Dockercontainer von Hand gestartet und beliebig angepasst werden, wird das mit dem folgenden Befehl erreicht: `docker run -v .:/tmp -u latex -it --entrypoint /bin/sh build-latex`. Innerhalb des Containers wird die Kompilierung mit `./build-latex.sh file.tex` angestoßen.
 
 <!-- 
 ### Dev Container
