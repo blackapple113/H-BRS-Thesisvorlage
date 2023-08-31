@@ -4,7 +4,11 @@ Diese Klasse verwendet das Paket \texttt{minted} (siehe \url{https://www.ctan.or
 \section{Inline Code}
 Code, der im Text stehen soll, kann auf verschiedene Arten erreicht werden. Die einfachste ist die Verwendung von \texttt{\textbackslash{}texttt\{…\}}. Dabei wird allerdings kein Syntax Highlighting verwendet. Der Text wird innerhalb dieser Umgebung nur an Leerzeichen umgebrochen und nicht innerhalb der Wörter.
 
-Eine weitere Möglichkeit für Syntax Highlighting im Fließtext bietet \texttt{minted} mit dem Befehl \mintinline{latex}{\mintinline{sprache}{codeblock}}. Dieser Befehl kann zusätzlich an vorgegebenen Stellen den Text umbrechen, was dennoch zu Problemen bei der Formatierung am Rand führen kann.
+Eine weitere Möglichkeit für Syntax Highlighting im Fließtext bietet \texttt{minted} mit dem Befehl \mintinline{latex}{\mintinline{sprache}{code}}. Dieser Befehl kann zusätzlich an vorgegebenen Stellen den Text umbrechen, was dennoch zu Problemen bei der Formatierung am Rand führen kann.
+
+\begin{information}
+    Die Option mit \mintinline{latex}{\mintinline{sprache}{code}} funktioniert in Overleaf nicht. Aus diesem Grund sollte in Overleaf ausschließlich \mintinline{latex}{\texttt{}} für Code im Fließtext verwendet werden.
+\end{information}
 
 \section{Block Code}
 Oft ist es notwendig Programmcode im Dokument darstellen zu können. Für diesen Zweck gibt es zwei verschiedene Möglichkeiten. Zum einen kann der Code direkt in die \LaTeX-Datei geschrieben werden, was bei Änderungen zu manuellen Anpassungen führt. Zum anderen kann der Code auch aus den Dateien importiert werden. \textbf{Aufgrund von Limitierungen von minted und TeX kann es zur Ausführung von Code kommen, weshalb nur bekannter Code geladen werden sollte!}
