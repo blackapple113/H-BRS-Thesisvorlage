@@ -61,3 +61,11 @@ Werden kein Glossar und/oder Akronymverzeichnis verwendet empfiehlt es sich die 
 \documentclass[german,noglossaries]{hbrs-thesis}
 …
 \end{code}
+
+\section{Aus PDF kopieren}
+Für die bessere Unterstützung des heraus Kopierens von Text aus der fertigen PDF-Datei wird das Paket \texttt{mmap} verwendet. Aufgrund der Einstellungen der Schriftart werden jedoch sehr viele Warnungen ausgegeben, weshalb die Option standardmäßig deaktiviert ist. Um den Lesenden ein einfacheres Kopieren von Inhalten zu ermöglichen, kann das Paket \texttt{mmap} mit der gleichnamigen Option aktiviert werden.
+
+\begin{code}{latex}
+\documentclass[german,mmap]{hbrs-thesis}
+…
+\end{code}
