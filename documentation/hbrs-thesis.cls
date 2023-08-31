@@ -1,1 +1,1 @@
-/home/thomas/Dokumente/Projekte/LaTeX-Vorlagen/H-BRS Thesisvorlage/template/hbrs-thesis.cls
+../template/hbrs-thesis.cls

@@ -6,6 +6,8 @@
 \newcommand{\thisdocumentclass}{scrartcl} % Default documentclass is scrartcl.
 \newif\ifmodernstyle % Toggle to switch between modern and classic style.
 \modernstyletrue % Default style to modern.
+\newif\ifmmap % Toggle package mmap because of much warnings.
+\mmapfalse % Default usage of package mmap to false
 
 
 \DeclareOption{article}{ % Sets the document in the article style.
@@ -17,7 +19,7 @@
 \DeclareOption{book}{\OptionNotUsed} % Until now there is no support to set this document as book style.
 
 \DeclareOption{twocolumn}{
-  \PassOptionsToClass{twocolumn}{\thisdocumentclass} % TODO: Test this in finished state.
+  \PassOptionsToClass{twocolumn}{\thisdocumentclass} % Allows two columns in document for ieee like style
 }
 
 \DeclareOption{modernstyle}{ % Sets the style to modern.
@@ -26,6 +28,10 @@
 
 \DeclareOption{classicstyle}{ % Sets the style to classic.
   \modernstylefalse
+}
+
+\DeclareOption{mmap}{ % Disallows the usage of mmap. Worse copy out of pdf but also no warnings.
+  \mmaptrue
 }
 
 
@@ -66,7 +72,10 @@
 
 
 %%%% Required packages %%%%
-\RequirePackage[noTeX]{mmap} % Allows better copying out of pdf. Should stay above inputenc and fontenc.
+\ifmmap
+  \RequirePackage[noTeX]{mmap} % Allows better copying out of pdf. Should stay above inputenc and fontenc.
+\else
+\fi
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{scrhack} % Improves the compatibility of the KOMA classes with third-party packages.
