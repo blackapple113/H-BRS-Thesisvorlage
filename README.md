@@ -6,8 +6,8 @@ Diese Dokumentvorlage ist ein Ansatz eine modernere, zuverlässiger konfiguriert
 - [Roadmap](#roadmap)
 - [Setup](#setup)
   - [Overleaf](#overleaf)
-- [VS Code](#vs-code)
-  - [Manuell](#manuell)
+  - [VS Code](#vs-code)
+    - [Manuell](#manuell)
 
 ## Roadmap
 
@@ -53,7 +53,7 @@ Zu Beginn sollten die Angaben auf dem Deckblatt angepasst werden. Diese befinden
 
 **Viel Erfolg!**
 
-## VS Code
+### VS Code
 
 Für VS Code gibt es unterschiedlichste Möglichkeiten diese Vorlage zu nutzen. Wird eine Open Source Variante von VS Code verwendet ([Code - OSS](https://github.com/microsoft/vscode), [VSCodium](https://vscodium.com/)) können [Dev Container](https://containers.dev/) leider nicht verwendet werden [(danke Microsoft!)](https://github.com/microsoft/vscode-remote-release/issues/1886#issuecomment-561493608). Für die folgende Installationsanleitung sollte also VS Code und entsprechende Erweiterungen installiert werden:
 
@@ -69,7 +69,7 @@ Für VS Code gibt es unterschiedlichste Möglichkeiten diese Vorlage zu nutzen. 
 - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 - [LTeX](https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex) (empfohlen)
 
-### Manuell
+#### Manuell
 
 **Notwendige Software:**
 - [TeX Live Full](https://tug.org/texlive/)
