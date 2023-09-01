@@ -82,6 +82,27 @@ Für VS Code gibt es unterschiedlichste Möglichkeiten diese Vorlage zu nutzen. 
   - Ubuntu: `sudo apt install texlive-full`
   - Arch (AUR): `yay -S texlive-full`
   - Fedora: `sudo dnf install texlive-scheme-full`
+- [Inkscape](https://inkscape.org/) (wird für die Konvertierung von SVG-Grafiken benötigt)
+  - Windows: [Inkscape](https://inkscape.org/)
+  - macOS: [Inkscape](https://inkscape.org/)
+  - Ubuntu: `sudo add-apt-repository ppa:inkscape.dev/stable && sudo apt update && sudo apt install inkscape`
+  - Arch: `sudo pacman -S inkscape`
+  - Fedora: `sudo dnf install inkscape`
+- [Python](https://www.python.org/) und [Pygments](https://pygments.org/) (für Syntax Highlighting im Dokument)
+  - Windows:
+    - [Python](https://www.python.org/)
+    - Pygments: In der Konsole oder PowerShell: `pip install Pygments`
+  - macOS:
+    - [Python über Homebrew](https://docs.brew.sh/Homebrew-and-Python)
+    - [Python über Website](https://www.python.org/)
+    - Pygments: Im Terminal: `pip install Pygments`
+  - Arch:
+    - Python: `sudo pacman -S python`
+    - Pygments: `sudo pacman -S python-pygments`
+  - Fedora:
+    - Python: `sudo dnf install python`
+    - Pygments: `sudo dnf install python-pygments`
+
 
 <!-- - (eventuell muss noch `biber` über die TeX Live Paketverwaltung heruntergeladen werden mit `tlmgr install biber`) -->
 
