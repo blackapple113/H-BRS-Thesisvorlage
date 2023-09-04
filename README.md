@@ -9,7 +9,7 @@ Diese Dokumentvorlage ist ein Ansatz eine modernere, zuverlässiger konfiguriert
   - [VS Code](#vs-code)
     - [Manuell](#manuell)
     - [Container](#container)
-  - [Dev Container](#dev-container)
+    - [Dev Container](#dev-container)
 
 ## Roadmap
 
@@ -125,7 +125,7 @@ Gehe in den Ordner `template` oder extrahiere diesen Ordner als Grundlage der ne
 Nachdem das Image `build-latex` vorhanden ist, kann das LaTeX-Dokument mit dem Befehl `docker run -v .:/tmp build-latex Document.tex` gebaut werden. Soll das Kompilieren im Dockercontainer von Hand gestartet und beliebig angepasst werden, wird das mit dem folgenden Befehl erreicht: `docker run -v .:/tmp -u latex -it --entrypoint /bin/sh build-latex`. Innerhalb des Containers wird die Kompilierung mit `./build-latex.sh file.tex` angestoßen.
 
 
-### Dev Container
+#### Dev Container
 
 **Notwendige Software:**
 - Visual Studio Code
