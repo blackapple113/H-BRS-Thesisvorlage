@@ -9,16 +9,17 @@ Diese Dokumentvorlage ist ein Ansatz eine modernere, zuverlässiger konfiguriert
   - [VS Code](#vs-code)
     - [Manuell](#manuell)
     - [Container](#container)
+  - [Dev Container](#dev-container)
 
 ## Roadmap
 
 * [x] Klassendatei bereitstellen, die ohne großen Aufwand verwendet werden kann.
-* [ ] Setup Guide für:
+* [x] Setup Guide für:
   * [x] Overleaf
-  * [ ] VS Code
+  * [x] VS Code
     * [x] Manuell
     * [x] Container
-    * [ ] Dev Container
+    * [x] Dev Container
 * [ ] Beispieldokument erstellen, in denen die wichtigsten Eigenschaften der LaTeX-Klasse gezeigt und erklärt werden (in Arbeit, siehe `Documentation.pdf`).
 * [x] Docker Container erstellen, der das Bauen übernimmt ohne, dass die notwendige Software auf dem Rechner installiert sein müssen.
 * [ ] Kleines Programm erstellen was erlaubt die notwendigen Dateien als Template herunterzuladen und direkt mit dem Schreiben anzufangen.
@@ -66,7 +67,7 @@ Für VS Code gibt es unterschiedlichste Möglichkeiten diese Vorlage zu nutzen. 
   - Arch: `sudo pacman -S code` (open source), `yay -S visual-studio-code-bin` (official binary version)
   - Fedora: [Visual Studio Code](https://code.visualstudio.com/) (Microsoft Build)
 
-**Erweiterungen:**
+**Erweiterungen für VS Code:**
 - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 - [LTeX](https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex) (empfohlen)
 
@@ -112,27 +113,51 @@ Nach der Installation der Software und der Extensions müssen die Einstellungen 
 #### Container
 
 **Notwendige Software:**
-  - Entweder [Docker Desktop](https://docs.docker.com/desktop/)
-  - oder [Docker Engine](https://docs.docker.com/engine/)
+- Docker
+  - Windows: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+  - macOS: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+  - Ubuntu: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+  - Arch: `sudo pacman -S docker`
+  - Fedora: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 Gehe in den Ordner `template` oder extrahiere diesen Ordner als Grundlage der neuen Arbeit aus dem aktuellen Verzeichnis. Innerhalb des `template`-Ordners befindet sich ein Dockerfile, welches das Image für die Kompilierung der LaTeX-Dateien baut. Solange kein Dockerimage direkt zur Verfügung steht, muss das Image selbst gebaut werden mit `docker build -t build-latex .`. Dieser Vorgang dauert 5 - 10 Minuten, muss danach aber nicht mehr wiederholt werden.
 
 Nachdem das Image `build-latex` vorhanden ist, kann das LaTeX-Dokument mit dem Befehl `docker run -v .:/tmp build-latex Document.tex` gebaut werden. Soll das Kompilieren im Dockercontainer von Hand gestartet und beliebig angepasst werden, wird das mit dem folgenden Befehl erreicht: `docker run -v .:/tmp -u latex -it --entrypoint /bin/sh build-latex`. Innerhalb des Containers wird die Kompilierung mit `./build-latex.sh file.tex` angestoßen.
 
-<!-- 
+
 ### Dev Container
+
 **Notwendige Software:**
 - Visual Studio Code
-  - Windows: [Visual Studio Code](https://code.visualstudio.com/)
+  - Windows: [Visual Studio Code](https://code.visualstudio.com/) (Microsoft Build)
+  - macOS: [Visual Studio Code](https://code.visualstudio.com/) (Microsoft Build)
   - Ubuntu: [Visual Studio Code](https://code.visualstudio.com/) (Microsoft Build)
   - Arch: `sudo pacman -S code` (open source), `yay -S visual-studio-code-bin` (official binary version)
   - Fedora: [Visual Studio Code](https://code.visualstudio.com/) (Microsoft Build)
+- Docker
+  - Windows: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+  - macOS: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+  - Ubuntu: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+  - Arch: `sudo pacman -S docker`
+  - Fedora: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
-**Extensions**
-- [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) **Geht nur mit den Microsoft und offiziellen Versionen**
+**Erweiterungen für VS Code**
+
+**Die folgende Erweiterung ist nur mit den offiziellen Microsoft Versionen kompatibel (Microsoft Build):**
+- [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+Der Ordner `template` kann aus dem heruntergeladenen Repository an eine beliebige Stelle kopiert und beliebig umbenannt werden. Nach Öffnen des Ordners in VS Code kann auf das blaue Rechteck unten links in der Ecke von VS Code geklickt werden.
+
+<div align="center">
+
+![VS Code open remote window button](assets/images/vscode-remote-window-button.png)
+
+</div>
+
+Es öffnet sich die Befehlspalette in der mehrere Optionen zur Auswahl stehen. Die Option "Im Container erneut öffnen" auswählen und nach dem Starten des Containers (kann beim ersten Mal, je nach Internetverbindung, einige Minuten dauern) kann in die Datei `Document.tex` geschrieben werden. Das Bauen des Dokumentes geschieht automatisch beim Speichern der Datei oder beim Klicken auf den grünen Play-Button oben rechts in der Ecke.
 
 
-Vor der Verwendung des Templates sollte sichergestellt werden, dass [Inkscape](https://inkscape.org/de/), [Python](https://www.python.org) und das Pythonpaket [Pygments](https://pygments.org/) auf dem System installiert sind.
+<!-- Vor der Verwendung des Templates sollte sichergestellt werden, dass [Inkscape](https://inkscape.org/de/), [Python](https://www.python.org) und das Pythonpaket [Pygments](https://pygments.org/) auf dem System installiert sind.
 
 Danach kann die Ordnerstruktur `template` einfach als Vorlage für das Dokument verwendet werden. `Document.tex` ist die Hauptdatei, in der alles geschrieben oder mit `\input` importiert wird. Ich empfehle die Aufteilung der Kapitel/Abschnitte in einzelne Dateien in den Ordner `chapter`. Als Klassenoption muss mindestens die Sprachangabe `german` oder `english` gegeben werden.
 
