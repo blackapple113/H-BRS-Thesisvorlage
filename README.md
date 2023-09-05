@@ -146,7 +146,7 @@ Nachdem das Image `build-latex` vorhanden ist, kann das LaTeX-Dokument mit dem B
 **Die folgende Erweiterung ist nur mit den offiziellen Microsoft Versionen kompatibel (Microsoft Build):**
 - [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-Der Ordner `template` kann aus dem heruntergeladenen Repository an eine beliebige Stelle kopiert und beliebig umbenannt werden. Nach Öffnen des Ordners in VS Code kann auf das blaue Rechteck unten links in der Ecke von VS Code geklickt werden.
+Der Ordner `template` kann aus dem heruntergeladenen Repository an eine beliebige Stelle kopiert und beliebig umbenannt werden. Vor der Verbindung zum Dev Container muss sichergestellt sein, dass Docker auf dem System läuft (Windows und macOS: Es muss Docker Desktop laufen). Nach Öffnen des Ordners in VS Code kann auf das blaue Rechteck unten links in der Ecke von VS Code geklickt werden.
 
 <div align="center">
 
