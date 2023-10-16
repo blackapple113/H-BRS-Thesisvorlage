@@ -238,7 +238,8 @@
 }{% else
 }
 
-
+% Reset footnote counter every page
+\counterwithin*{footnote}{page}
 
 %% New table of... for codeexamples and formulas %%
 \DeclareNewTOC[%
