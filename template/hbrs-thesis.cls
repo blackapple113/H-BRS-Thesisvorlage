@@ -132,6 +132,7 @@
 \RequirePackage{todonotes} % For orange todo boxes in the PDF document
 \RequirePackage{enumitem} % Allows customization of enumeration descriptions e.g. for research questions (Q1 > (Q1.1, Q1.2), Q2 > (Q2.1))
 \RequirePackage{ifthen} % Implements an \ifthenelse command for LaTeX2e.
+\RequirePackage{icomma} % Allows german number format with "," as decimal separator without space after ",".
 \RequirePackage{hyperref} % Allows linking to all possible labels within the document and beyond. Should be included last as it overwrites many LaTeX commands.
 
 
@@ -236,6 +237,8 @@
   \renewcommand{\chapterpagestyle}{mychapterpagestyle}
 }{% else
 }
+
+
 
 %% New table of... for codeexamples and formulas %%
 \DeclareNewTOC[%
