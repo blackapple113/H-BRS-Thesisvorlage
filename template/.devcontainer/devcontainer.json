@@ -113,6 +113,7 @@
                             "-file-line-error",
                             "-lualatex",
                             "-outdir=%OUTDIR%",
+                            "-shell-escape",
                             "%DOC%"
                         ],
                         "env": {}
@@ -126,6 +127,7 @@
                             "-file-line-error",
                             "-xelatex",
                             "-outdir=%OUTDIR%",
+                            "-shell-escape",
                             "%DOC%"
                         ],
                         "env": {}
