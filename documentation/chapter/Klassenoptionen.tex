@@ -38,22 +38,6 @@ Neben dem Stil der Schriftart kann auch zwischen \texttt{report} und \texttt{art
 …
 \end{code}
 
-Für den Fall, dass der zweispaltige Stil wie in IEEE- oder ACM-Dokumenten optisch bevorzugt wird, existiert die Option \texttt{twocolumn}. Diese Eignet sich am besten in Kombination der Optionen \texttt{classicstyle} und \texttt{article}. Die entsprechende Konfiguration sieht dann beispielsweise folgendermaßen aus, wobei \texttt{article} Standard ist, also nicht angegeben werden muss:
-
-
-\begin{showcase}
-    \begin{code}{latex}
-    \documentclass[german,classicstyle,article,twocolumn]{hbrs-thesis}
-    …
-    \end{code}
-    \tcblower
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\columnwidth]{assets/images/klassenoptionen/twocolumn_classicstyle_article.png}
-        \caption{Beispielbild für die Option \texttt{twocolumn} in Kombination mit \texttt{article} und \texttt{classicstyle}.}
-    \end{figure}
-\end{showcase}
-
 \section{Druckoptionen}
 Soll das Dokument ausgedruckt und gebunden werden ergibt sich die Notwendigkeit für einen erweiterten Seitenrand an der Bindeposition (innerer Seitenrand). Mit der Option \texttt{noprint} kann im Dokument explizit angegeben, dass dieses Dokument nicht gedruckt und gebunden wird. So verschiebt sich der Textbereich mittig auf die Seite mit gleichmäßigen Seitenrändern. Standardmäßig ist die \texttt{noprint} Option deaktiviert, da es sich bei der Vorlage um eine Thesisvorlage handelt und diese in der Regel ausgedruckt wird.
 

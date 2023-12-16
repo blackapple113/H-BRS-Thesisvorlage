@@ -20,10 +20,6 @@
 }
 \DeclareOption{book}{\OptionNotUsed} % Until now there is no support to set this document as book style.
 
-\DeclareOption{twocolumn}{
-  \PassOptionsToClass{twocolumn}{\thisdocumentclass} % Allows two columns in document for ieee like style
-}
-
 \DeclareOption{noprint}{ % Aligns the text area at an equal distance from both sides. Not recommended for printing the document
   \noprinttrue
 }
