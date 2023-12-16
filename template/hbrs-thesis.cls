@@ -129,19 +129,20 @@
   \reversemarginpar
 \fi
 \RequirePackage{rotating} % Allows images or tables to be rotated without rotating the entire page.
-\ifglossaries
-  \RequirePackage[
-    toc, % Adds an entry to the table of contents.
-    % nonumberlist, % Removes also the crossreference between acronyms and glossary entries with "see={...}".
-    nopostdot, % This option suppresses the default terminating full stop in glossary styles.
-    acronym % This creates a new glossary with the label acronym
-  ]{glossaries}
-\fi
 \RequirePackage{todonotes} % For orange todo boxes in the PDF document
 \RequirePackage{enumitem} % Allows customization of enumeration descriptions e.g. for research questions (Q1 > (Q1.1, Q1.2), Q2 > (Q2.1))
 \RequirePackage{ifthen} % Implements an \ifthenelse command for LaTeX2e.
 \RequirePackage{icomma} % Allows german number format with "," as decimal separator without space after ",".
 \RequirePackage{hyperref} % Allows linking to all possible labels within the document and beyond. Should be included last as it overwrites many LaTeX commands.
+\ifglossaries
+  \RequirePackage[
+    toc, % Adds an entry to the table of contents.
+    % nonumberlist, % Removes also the crossreference between acronyms and glossary entries with "see={...}".
+    nopostdot, % This option suppresses the default terminating full stop in glossary styles.
+    acronym, % This creates a new glossary with the label acronym
+    translate=babel % Automatically translates the heading in other languages
+  ]{glossaries}
+\fi
 
 %%%% Utility files %%%%
 \input{assets/utility/acronyms}
@@ -377,6 +378,10 @@
 
 %% Glossary configuration %%
 \ifglossaries
+  \renewcommand{\glsnamefont}[1]{\textbf{#1}}
+  \setlength\LTleft{-6pt}
+  \setlength\LTright{0pt}
+  \setlength\glsdescwidth{0.8\hsize}
   \makeglossaries % make glossaries
 \fi
 
