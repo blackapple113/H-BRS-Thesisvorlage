@@ -18,7 +18,10 @@
 \DeclareOption{report}{ % Sets the document in the report style.
   \renewcommand{\thisdocumentclass}{scrreprt}
 }
-\DeclareOption{book}{\OptionNotUsed} % Until now there is no support to set this document as book style.
+\DeclareOption{book}{
+  \noprinttrue % Sets the noprint option for normal book layout
+  \renewcommand{\thisdocumentclass}{scrbook}
+} % Until now there is no support to set this document as book style.
 
 \DeclareOption{noprint}{ % Aligns the text area at an equal distance from both sides. Not recommended for printing the document
   \noprinttrue
@@ -164,7 +167,7 @@
   \automark{section}
   \automark*{subsection}
   \automark*{subsubsection}
-}{ % else
+}{ % false
   \ifthenelse{
     \equal{\thisdocumentclass}{scrreprt}
   }{ % true
@@ -176,8 +179,19 @@
     \automark{chapter}
     \automark*{section}
     \automark*{subsection}
-  }{% else
-    % In future maybe settings for scrbook
+  }{% false
+    \ifthenelse{
+      \equal{\thisdocumentclass}{scrbook}
+    }{ % true
+      \KOMAoptions{
+        chapterentrydots=true,  % Puts dots between heading and page number in TOC for chapters
+      }
+      \newcommand{\useCounterWithin}{chapter}
+
+      \automark{chapter}
+      \automark*{section}
+      \automark*{subsection}
+    }
   }
 }
 
@@ -224,7 +238,7 @@
 \clearpairofpagestyles
 \lohead{\headmark}
 \rohead{}%Bachelor-Thesis}%\@subtitle}
-\rofoot{
+\rofoot*{
 	\begin{tikzpicture}[overlay,baseline={(0,0)}] % small line in front of page number
 		\draw[black,thick] (0,-0.33) -- (0,0.55);
 	\end{tikzpicture}
@@ -237,13 +251,19 @@
 	\end{tikzpicture}
 	\hspace{2ex}\pagemark % page number
 }
+\lefoot*{
+  \pagemark\hspace{2ex} % page number
+	\begin{tikzpicture}[overlay,baseline={(0,0)}] % small line in front of page number
+		\draw[black,thick] (0,-0.33) -- (0,0.55);
+	\end{tikzpicture}
+}
 
 % If report class then reset mychapterpagestyle
 \ifthenelse{
   \equal{\thisdocumentclass}{scrreprt}
 }{ % true
   \renewcommand{\chapterpagestyle}{mychapterpagestyle}
-}{% else
+}{% false
 }
 
 % Reset footnote counter every page
@@ -287,13 +307,21 @@
     \equal{\thisdocumentclass}{scrartcl}
   }{ % true
     \setkomafont{sectionentry}{\normalfont}
-  }{ % else
+  }{ % false
     \ifthenelse{
       \equal{\thisdocumentclass}{scrreprt}
     }{ % true
       \setkomafont{chapterentry}{\normalfont\selectfont}
       \setkomafont{chapter}{\Huge\normalfont\selectfont}
-    }{ % else maybe for book
+    }{ % false 
+      \ifthenelse{
+        \equal{\thisdocumentclass}{scrbook}
+      }{ % true
+        \setkomafont{chapterentry}{\normalfont\selectfont}
+        \setkomafont{chapter}{\Huge\normalfont\selectfont}
+      }{ % false
+
+      } % scrbook
     } % scrreprt
   } % scrartcl
   \setkomafont{section}{\LARGE\normalfont}
@@ -355,12 +383,12 @@
   \equal{\thislanguage}{ngerman}
   }{ % true
   \SetupFloatingEnvironment{listing}{name=Code} % changes the code caption from "Listing" to "Code"
-}{ % else
+}{ % false
   \ifthenelse{
     \equal{\thislanguage}{english}
   }{ % true
     \SetupFloatingEnvironment{listing}{name=Code} % changes the code caption from "Listing" to "Code"
-  }{ % else
+  }{ % false
   }
 }
 
@@ -498,7 +526,7 @@
   \equal{\ThesisDedication}{}
 }{ % true
   \dedication{}
-}{ % else
+}{ % false
   \dedication{\ThesisDedication}
 }
 \publishers{%
