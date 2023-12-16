@@ -8,6 +8,8 @@
 \modernstyletrue % Default style to modern.
 \newif\ifmmap % Toggle package mmap because of much warnings.
 \mmapfalse % Default usage of package mmap to false
+\newif\ifnoprint
+\noprintfalse
 
 
 \DeclareOption{article}{ % Sets the document in the article style.
@@ -22,6 +24,10 @@
   \PassOptionsToClass{twocolumn}{\thisdocumentclass} % Allows two columns in document for ieee like style
 }
 
+\DeclareOption{noprint}{ % Aligns the text area at an equal distance from both sides. Not recommended for printing the document
+  \noprinttrue
+}
+
 \DeclareOption{modernstyle}{ % Sets the style to modern.
   \modernstyletrue
 }
@@ -33,6 +39,7 @@
 \DeclareOption{mmap}{ % Disallows the usage of mmap. Worse copy out of pdf but also no warnings.
   \mmaptrue
 }
+
 
 
 %%%% Definition of package options %%%%
@@ -119,7 +126,12 @@
 \RequirePackage{microtype} % Improves the typeface for the default font and makes the document easier to read.
 \RequirePackage{tabularray} % The only tabular package you'll ever need. Has all the benefits of tabularx, longtabular and array combined.
 \RequirePackage{xurl} % Package for wrapping URLs. With the [nobiblatex] option, the URLs in the bibliography are not wrapped.
-\RequirePackage[top=7.5em,bottom=9em]{geometry} % Sets the margins. Used here to move the page number down a bit.
+\ifnoprint
+  \RequirePackage[top=7.5em,bottom=9em]{geometry} % Sets the margins. Used here to move the page number down a bit.
+\else
+  \RequirePackage[top=7.5em,bottom=9em,bindingoffset=1.5cm,outer=1.85cm]{geometry} % Sets the margins. Used here to move the page number down a bit.
+  \reversemarginpar
+\fi
 \RequirePackage{rotating} % Allows images or tables to be rotated without rotating the entire page.
 \ifglossaries
   \RequirePackage[
@@ -134,7 +146,6 @@
 \RequirePackage{ifthen} % Implements an \ifthenelse command for LaTeX2e.
 \RequirePackage{icomma} % Allows german number format with "," as decimal separator without space after ",".
 \RequirePackage{hyperref} % Allows linking to all possible labels within the document and beyond. Should be included last as it overwrites many LaTeX commands.
-
 
 %%%% Utility files %%%%
 \input{assets/utility/acronyms}

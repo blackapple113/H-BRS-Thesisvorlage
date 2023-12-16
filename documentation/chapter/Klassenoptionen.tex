@@ -54,6 +54,14 @@ Für den Fall, dass der zweispaltige Stil wie in IEEE- oder ACM-Dokumenten optis
     \end{figure}
 \end{showcase}
 
+\section{Druckoptionen}
+Soll das Dokument ausgedruckt und gebunden werden ergibt sich die Notwendigkeit für einen erweiterten Seitenrand an der Bindeposition (innerer Seitenrand). Mit der Option \texttt{noprint} kann im Dokument explizit angegeben, dass dieses Dokument nicht gedruckt und gebunden wird. So verschiebt sich der Textbereich mittig auf die Seite mit gleichmäßigen Seitenrändern. Standardmäßig ist die \texttt{noprint} Option deaktiviert, da es sich bei der Vorlage um eine Thesisvorlage handelt und diese in der Regel ausgedruckt wird.
+
+\begin{code}{latex}
+\documentclass[german,noprint]{hbrs-thesis}
+…
+\end{code}
+
 \section{Glossar und Akronymverzeichnis}
 Werden kein Glossar und/oder Akronymverzeichnis verwendet empfiehlt es sich die Option \texttt{noglossaries} in der Klasse zu verwenden. Damit wird das entsprechende Paket nicht geladen, es wird keine Warnung diesbezüglich ausgegeben und das Kompilieren geht eventuell schneller.
 
