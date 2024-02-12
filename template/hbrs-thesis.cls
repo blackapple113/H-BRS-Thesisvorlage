@@ -125,18 +125,18 @@
 \RequirePackage{microtype} % Improves the typeface for the default font and makes the document easier to read.
 \RequirePackage{tabularray} % The only tabular package you'll ever need. Has all the benefits of tabularx, longtabular and array combined.
 \RequirePackage{xurl} % Package for wrapping URLs. With the [nobiblatex] option, the URLs in the bibliography are not wrapped.
-\ifnoprint
-  \RequirePackage[top=7.5em,bottom=9em]{geometry} % Sets the margins. Used here to move the page number down a bit.
-\else
-  \RequirePackage[top=7.5em,bottom=9em,bindingoffset=1.5cm,outer=1.85cm]{geometry} % Sets the margins. Used here to move the page number down a bit.
-  \reversemarginpar
-\fi
 \RequirePackage{rotating} % Allows images or tables to be rotated without rotating the entire page.
 \RequirePackage{todonotes} % For orange todo boxes in the PDF document
 \RequirePackage{enumitem} % Allows customization of enumeration descriptions e.g. for research questions (Q1 > (Q1.1, Q1.2), Q2 > (Q2.1))
 \RequirePackage{ifthen} % Implements an \ifthenelse command for LaTeX2e.
 \RequirePackage{icomma} % Allows german number format with "," as decimal separator without space after ",".
 \RequirePackage{hyperref} % Allows linking to all possible labels within the document and beyond. Should be included last as it overwrites many LaTeX commands.
+\ifnoprint
+  \RequirePackage[top=7.5em,bottom=9em]{geometry} % Sets the margins. Used here to move the page number down a bit.
+\else
+  \RequirePackage[top=7.5em,bottom=9em,bindingoffset=1.5cm,outer=1.85cm]{geometry} % Sets the margins. Used here to move the page number down a bit.
+  \reversemarginpar
+\fi
 \ifglossaries
   \RequirePackage[
     toc, % Adds an entry to the table of contents.
