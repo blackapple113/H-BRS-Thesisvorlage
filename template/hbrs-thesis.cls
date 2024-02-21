@@ -573,3 +573,6 @@
     #2
   }
 }
+
+%% Default configuration for images %%
+\setkeys{Gin}{width=0.8\textwidth}
