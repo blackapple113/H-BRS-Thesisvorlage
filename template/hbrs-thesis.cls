@@ -147,6 +147,9 @@
   ]{glossaries}
 \fi
 
+%% Set hyphen character %%
+\hyphenchar\font=\string"7F % This setting allows the hyphenation of words with a dash (-) in it
+
 %%%% Utility files %%%%
 \input{assets/utility/acronyms}
 \input{assets/utility/glossary}
