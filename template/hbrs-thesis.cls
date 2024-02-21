@@ -559,19 +559,15 @@
 
 %% Double signature %%
 \newcommand{\doublesignature}[2]{%
-\vspace{2cm}
-\noindent
-\parbox{6cm}{
-    \raggedright
-    \rule{6cm}{0.8pt}\\
-     #1 
-  }
-  \hfill
-  \parbox{6cm}{
-    \raggedleft
-    \rule{6cm}{0.8pt}\\
-    #2
-  }
+  \vspace{4em}
+  \begin{table}[H]
+    \begin{tblr}{
+      colspec = {X[2,l] X[1,c] X[2,r]}
+    }
+      \SetHline{1,3}{0.8pt}
+      #1 & & #2\\
+    \end{tblr}
+  \end{table}
 }
 
 %% Default configuration for images %%
