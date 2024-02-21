@@ -522,9 +522,9 @@
 
 %% Titlepage configuration %%
 \title{\ThesisTitle}
-\subtitle{\ThesisSubtitle}        % Untertitel des Dokuments
-\author{\ThesisAuthor}          % Author des Dokuments
-\date{\normalsize\ThesisPublicationDate}      % Datum der erstellung
+\subtitle{\ThesisSubtitle}
+\author{\ThesisAuthor}
+\date{\normalsize\ThesisPublicationDate}
 \ifthenelse{
   \equal{\ThesisDedication}{}
 }{ % true
@@ -558,6 +558,14 @@
 \titlehead{
 	\includegraphics[width=0.5\textwidth]{assets/images/titlepage/hbrs_logo.jpg}\\
 	\tikz[remember picture, overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth]{assets/images/titlepage/hbrs_backdrop.jpg}};
+}
+
+%% Custom titlepage that is centered %%
+% This option allows cleaner prints when thesis is finished
+\newcommand{\makecentertitle}{%
+  \newgeometry{top=7.5em,bottom=9em}
+  \maketitle
+  \restoregeometry
 }
 
 %% Double signature %%
