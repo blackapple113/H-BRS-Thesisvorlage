@@ -583,3 +583,8 @@
 
 %% Default configuration for images %%
 \setkeys{Gin}{width=0.8\textwidth}
+
+%% Automatically center floating environments %%
+\makeatletter
+\g@addto@macro\@floatboxreset\centering
+\makeatother
