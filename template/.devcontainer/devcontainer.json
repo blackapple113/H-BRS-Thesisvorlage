@@ -248,7 +248,6 @@
                     "showcode": "ignore",
                     "code": "ignore"
                 },
-                "ltex.java.path": "/usr",
                 "[tex]": {
                     "editor.wordWrap": "on"
                 },
