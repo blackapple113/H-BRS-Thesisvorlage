@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hbrs-thesis}[2024/02/21 LaTeX template with batteries included]
+\ProvidesClass{hbrs-thesis}[2024/03/06 LaTeX template with batteries included]
 
 
 %%%% Defintion of class options %%%%
