@@ -1,3 +1,1 @@
-FROM blackapple113/build-latex
-
-RUN apk --no-cache add openjdk17
+FROM blackapple113/build-latex:v2
