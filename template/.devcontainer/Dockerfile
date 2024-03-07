@@ -1,1 +1,1 @@
-FROM blackapple113/build-latex:v2
+FROM blackapple113/build-latex:latest
