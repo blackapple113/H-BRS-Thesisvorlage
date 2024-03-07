@@ -65,7 +65,6 @@ Für VS Code gibt es unterschiedlichste Möglichkeiten diese Vorlage zu nutzen. 
   - macOS: [Visual Studio Code](https://code.visualstudio.com/) (Microsoft Build)
   - Ubuntu: [Visual Studio Code](https://code.visualstudio.com/) (Microsoft Build)
   - Arch: `sudo pacman -S code` (open source), `yay -S visual-studio-code-bin` (official binary version)
-  - Fedora: [Visual Studio Code](https://code.visualstudio.com/) (Microsoft Build)
 
 **Erweiterungen für VS Code:**
 - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
@@ -80,15 +79,13 @@ Für VS Code gibt es unterschiedlichste Möglichkeiten diese Vorlage zu nutzen. 
     - In der größeren Auswahl lediglich die Option `Installiere TeXworks als Frontend` abwählen (wir verwenden ja schließlich VS Code).
     - Dauer der Installation je nach Internetverbindung: **ca. 1,5 Stunden**
   - macOS: [MacTeX](https://www.tug.org/mactex/mactex-download.html)
-  - Ubuntu: `sudo apt install texlive-full`
+  - Ubuntu: [Quick Install TeX Live](https://tug.org/texlive/quickinstall.html)
   - Arch (AUR): `yay -S texlive-full`
-  - Fedora: `sudo dnf install texlive-scheme-full`
 - [Inkscape](https://inkscape.org/) (wird für die Konvertierung von SVG-Grafiken benötigt)
   - Windows: [Inkscape](https://inkscape.org/)
   - macOS: [Inkscape](https://inkscape.org/)
   - Ubuntu: `sudo add-apt-repository ppa:inkscape.dev/stable && sudo apt update && sudo apt install inkscape`
   - Arch: `sudo pacman -S inkscape`
-  - Fedora: `sudo dnf install inkscape`
 - [Python](https://www.python.org/) und [Pygments](https://pygments.org/) (für Syntax Highlighting im Dokument)
   - Windows:
     - [Python](https://www.python.org/)
