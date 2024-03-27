@@ -5,14 +5,15 @@ sub run_makeglossaries {
     my ($base_name, $path) = fileparse( $_[0] ); #handle -outdir param by splitting path and file, ...
     pushd $path; # ... cd-ing into folder first, then running makeglossaries ...
 
-    if ( $silent ) {
-        system "makeglossaries -q '$base_name'"; #unix
-        # system "makeglossaries", "-q", "$base_name"; #windows
+    if ($^O =~ /win/i) { # if windows
+        system "makeglossaries", "$base_name"; #windows
+    }
+    elsif ($^O =~ /darwin/i || $^O =~ /linux/i) { # if mac or linux
+        system "makeglossaries '$base_name'"; #unix
     }
     else {
-        system "makeglossaries '$base_name'"; #unix
-        # system "makeglossaries", "$base_name"; #windows
-    };
+        print "Unknown operating system while trying to make glossaries\n";
+    }
 
     popd; # ... and cd-ing back again
 }
