@@ -418,7 +418,14 @@
 
 %% Tabularry configuration %%
 \UseTblrLibrary{booktabs} % Cleaner looking tables with the booktabs package used for tabularray
-
+% Automatically translate information for longtblr tables
+\ifthenelse{
+  \equal{\thislanguage}{ngerman}
+  }{ % true
+    \DefTblrTemplate{contfoot-text}{default}{Fortsetzung auf der nächsten Seite}
+    \DefTblrTemplate{conthead-text}{default}{(Fortgesetzt)}
+  }{% false
+}
 
 %% Bibliography configuration %%
 \addbibresource{bibliography.bib} % Document with all bibliography data
