@@ -88,7 +88,6 @@
 \RequirePackage{babel} % Allow correct hyphenation in words.
 \RequirePackage{scrlayer-scrpage} % Header and footer for KOMA-Script classes.
 \RequirePackage[
-  outputdir=out,
   newfloat
 ]{minted} % Codehighlighting that requires python and pygmentize to work.
 \RequirePackage{tcolorbox} % Allows complex boxes arround nearly everything. Primarily used for code in this class.
