@@ -62,8 +62,8 @@ Für VS Code gibt es unterschiedlichste Möglichkeiten diese Vorlage zu nutzen. 
 **VS Code:**
 - Visual Studio Code
   - Windows: [Visual Studio Code](https://code.visualstudio.com/)
-  - macOS: [Visual Studio Code](https://code.visualstudio.com/) (Microsoft Build)
-  - Ubuntu: [Visual Studio Code](https://code.visualstudio.com/) (Microsoft Build)
+  - macOS: [Visual Studio Code](https://code.visualstudio.com/)
+  - Ubuntu: [Visual Studio Code](https://code.visualstudio.com/)
   - Arch: `sudo pacman -S code` (open source), `yay -S visual-studio-code-bin` (official binary version)
 
 **Erweiterungen für VS Code:**
@@ -117,9 +117,9 @@ Nach der Installation der Software und der Extensions müssen die Einstellungen 
   - Arch: `sudo pacman -S docker`
   - Fedora: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
-Gehe in den Ordner `template` oder extrahiere diesen Ordner als Grundlage der neuen Arbeit aus dem aktuellen Verzeichnis. Innerhalb des `template`-Ordners befindet sich ein Dockerfile, welches das Image für die Kompilierung der LaTeX-Dateien baut. Solange kein Dockerimage direkt zur Verfügung steht, muss das Image selbst gebaut werden mit `docker build -t build-latex .`. Dieser Vorgang dauert 5 - 10 Minuten, muss danach aber nicht mehr wiederholt werden.
+Gehe in den Ordner `template` oder kopiere diesen Ordner als Grundlage der neuen Arbeit aus dem aktuellen Verzeichnis an eine neue Stelle. Innerhalb des `template`-Ordners befindet sich ein Dockerfile, welches das Basisimage für das LaTeX-Projekt darstellt. Solange ich es nicht geschafft habe ein Dockerimage direkt zur Verfügung zu stellen, muss das Image selbst gebaut werden mit `docker build -t build-latex .`. Dieser Vorgang dauert 5 - 10 Minuten, muss danach aber nicht mehr wiederholt werden.
 
-Nachdem das Image `build-latex` vorhanden ist, kann das LaTeX-Dokument mit dem Befehl `docker run -v .:/tmp build-latex Document.tex` gebaut werden. Soll das Kompilieren im Dockercontainer von Hand gestartet und beliebig angepasst werden, wird das mit dem folgenden Befehl erreicht: `docker run -v .:/tmp -u latex -it --entrypoint /bin/sh build-latex`. Innerhalb des Containers wird die Kompilierung mit `./build-latex.sh file.tex` angestoßen.
+Nachdem das Image `build-latex` vorhanden ist, kann das LaTeX-Dokument mit dem Befehl `docker run -v .:/tmp build-latex Document.tex` gebaut werden. Achte dabei darauf, dass du dich in dem Ordner des Templates befindest, da das *volume* sonst nicht korrent ist. Soll das Kompilieren im Dockercontainer von Hand gestartet und beliebig angepasst werden, wird das mit dem folgenden Befehl erreicht: `docker run -v .:/tmp -u latex -it --entrypoint /bin/sh build-latex`. Innerhalb des Containers wird die Kompilierung mit `./build-latex.sh Document.tex` angestoßen.
 
 
 #### Dev Container
@@ -151,7 +151,15 @@ Der Ordner `template` kann aus dem heruntergeladenen Repository an eine beliebig
 
 </div>
 
-Es öffnet sich die Befehlspalette in der mehrere Optionen zur Auswahl stehen. Die Option "Im Container erneut öffnen" auswählen und nach dem Starten des Containers (kann beim ersten Mal, je nach Internetverbindung, einige Minuten dauern) kann in die Datei `Document.tex` geschrieben werden. Das Bauen des Dokumentes geschieht automatisch beim Speichern der Datei oder beim Klicken auf den grünen Play-Button oben rechts in der Ecke.
+Es öffnet sich die Befehlspalette in der mehrere Optionen zur Auswahl stehen. Die Option "Im Container erneut öffnen" auswählen und nach dem Starten des Containers (kann beim ersten Mal, je nach Internetverbindung, einige Minuten dauern) kann in die Datei `Document.tex` geschrieben werden.
+
+<div align="center">
+
+![Reopen in container](assets/images/vscode_reopen_in_container.png)
+
+</div>
+
+Das Bauen des Dokumentes geschieht automatisch beim Speichern der Datei oder beim Klicken auf den grünen Play-Button oben rechts in der Ecke.
 
 
 <!-- Vor der Verwendung des Templates sollte sichergestellt werden, dass [Inkscape](https://inkscape.org/de/), [Python](https://www.python.org) und das Pythonpaket [Pygments](https://pygments.org/) auf dem System installiert sind.
