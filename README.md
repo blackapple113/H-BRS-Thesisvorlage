@@ -9,7 +9,7 @@ Diese Dokumentvorlage ist ein Ansatz eine modernere, zuverlässiger konfiguriert
   - [VS Code](#vs-code)
     - [Manuell](#manuell)
     - [Container](#container)
-    - [Dev Container](#dev-container)
+    - ~~[Dev Container](#dev-container)~~
 
 ## Roadmap
 
@@ -123,6 +123,8 @@ Nachdem das Image `build-latex` vorhanden ist, kann das LaTeX-Dokument mit dem B
 
 
 #### Dev Container
+
+⚠️ Funktioniert nach aktuellen Tests unter Fedora 43 leider nicht, wird aber korrigiert! ⚠️
 
 **Notwendige Software:**
 - Visual Studio Code
